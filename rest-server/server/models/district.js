@@ -23,4 +23,4 @@ const districtSchema = new Schema({
 
 districtSchema.plugin(uniqueValidator, { message: "{PATH} should be unique" });
 
-module.exports = mongoose.model("Category", districtSchema);
+module.exports = mongoose.model("District", districtSchema);

@@ -1,22 +1,14 @@
 const mongoose = require("mongoose");
 const uniqueValidator = require("mongoose-unique-validator");
 const Schema = mongoose.Schema;
-const validCategories = {
-    values: ["COMPLAINT", "REPORT", "SUGGESTION", "IMPROVEMENT", "CONGRATULATION", "COMPLAINT"],
-    message: "{VALUE} is not a valid role"
-};
 
-const categorySchema = new Schema({
+const incientSchema = new Schema({
     description: {
         type: String,
         required: true
     },
-    category: {
-        type: String,
-        required: true,
-        default: "REPORT",
-        enum: validRoles
-    },
+    priority: [{ type: Schema.Types.ObjectId, ref: 'incidents_types' }],
+
     state: {
         type: String
     },
@@ -25,6 +17,6 @@ const categorySchema = new Schema({
     }
 });
 
-categorySchema.plugin(uniqueValidator, { message: "{PATH} should be unique" });
+incientSchema.plugin(uniqueValidator, { message: "{PATH} should be unique" });
 
-module.exports = mongoose.model("Category", categorySchema);
+module.exports = mongoose.model("Incient", incientSchema);
