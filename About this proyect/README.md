@@ -1,0 +1,2 @@
+# project_complaints_app
+Proyecto final Bootcamp Full Stack Web - El objetivo principal de la aplicación reside en gestionar las denuncias municipales. Estas incidencias son emitidas por ciudadanos de una misma ciudad y son gestionadas por el ayuntamiento. De esta forma se podría paliar los efectos negativos de la inseguridad ciudadana mejorando la satisfacción y el rendimiento general de los ciudadanos.

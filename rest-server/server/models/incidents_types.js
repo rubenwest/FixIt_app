@@ -6,10 +6,6 @@ const incidentsTypesSchema = new Schema({
     category: {
         type: String,
         required: true
-    },
-    priority: {
-        type: String,
-        required: true
     }
 });
 

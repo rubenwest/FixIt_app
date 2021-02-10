@@ -2,13 +2,24 @@ const mongoose = require("mongoose");
 const uniqueValidator = require("mongoose-unique-validator");
 const Schema = mongoose.Schema;
 
+const validPriority = {
+    values: ["Leve", "media", "alta"],
+    message: "{VALUE} is not a valid role"
+};
+
 const incientSchema = new Schema({
     description: {
         type: String,
         required: true
     },
-    priority: [{ type: Schema.Types.ObjectId, ref: 'incidents_types' }],
+    category: [{ type: Schema.Types.ObjectId, ref: 'incidents_types' }],
 
+    priority: {
+        type: String,
+        required: true,
+        default: "Leve",
+        enum: validPriority
+    },
     state: {
         type: String
     },
