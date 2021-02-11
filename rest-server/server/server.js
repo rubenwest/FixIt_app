@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 
+const cors = require('cors');
+
 //Asignamos el expres a nuestra aplicacion
 
 //Importamos el archivo de configuracion del servidor
@@ -14,6 +16,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // parse application/json
 app.use(bodyParser.json());
+
+app.use(cors());
 
 //Global routes
 app.use(require("./routes/index"));
