@@ -12,7 +12,28 @@ router.get("/", (req, res) => {
 //creamos el metodo post
 
 router.post("/", (req, res) => {
-    res.json("POST USER");
+    let body = req.body;
+
+  let user = new User({
+    name: body.name,
+    email: body.email,
+    password: bcrypt.hashSync(body.password, 10),
+    role: body.role,
+  });
+
+  user.save((err, userDB) => {
+    if (err) {
+      res.status(400).json({
+        ok: false,
+        err,
+      });
+    } else {
+      res.json({
+        ok: true,
+        user: userDB,
+      });
+    }
+  });
 });
 
 router.put("/", (req, res) => {

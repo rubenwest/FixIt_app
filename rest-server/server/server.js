@@ -1,7 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
-
+const bcrypt = require("bcrypt");
+const R = require('ramda');
 const cors = require('cors');
 
 //Asignamos el expres a nuestra aplicacion
@@ -23,7 +24,7 @@ app.use(cors());
 app.use(require("./routes/index"));
 
 //Generamos la conexion con la base de datos de MONGODB
-mongoose.connect("mongodb://localhost:27017/complainst_app", {
+mongoose.connect("mongodb://localhost:27017/complaints_app", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,

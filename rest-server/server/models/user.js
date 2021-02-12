@@ -11,15 +11,12 @@ const userSchema = new Schema({
         type: String
     },
     email: {
-        type: String
+        type: String,
+        unique: true
     },
     password: {
         type: String,
         required: [true, "Password is required"]
-    },
-    email: {
-        type: String,
-        unique: true
     },
     role: {
         type: String,
