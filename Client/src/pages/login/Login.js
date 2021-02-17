@@ -21,7 +21,7 @@ function Login() {
     fetch('http://localhost:3000/login', requestOptions)
     .then(response => {
       response.json()
-      console.log("lavida1:");
+      console.log("lavida1",response);
       
     })
     .then(data => {
