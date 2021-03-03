@@ -12,6 +12,7 @@ router.post("/", (req, res) => {
     try {
 
         const body = req.body;
+        
 
         User.findOne({ email: body.email }, (error, userDB) => {
 
@@ -27,7 +28,19 @@ router.post("/", (req, res) => {
                 return res.status(400).json({
                     ok: false,
                     error: {
+                        message: email,
+                        message: password,
+                        message: bcrypt.hashSync(body.password, 10),
                         message: "invalid (User) or password"
+                    }
+                })
+            }
+
+            if (!bcrypt.compareSync(body.password, userDB.password)) {
+                return res.status(400).json({
+                    ok: false,
+                    error: {
+                        message: "invalid User or (password)"
                     }
                 })
             }

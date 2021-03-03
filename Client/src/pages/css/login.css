@@ -1,0 +1,102 @@
+body{
+    background-image: url(../img/playadefondo.jpg);
+    height: 100vh;
+    width: 100vw;
+    /* min-height: 100%; */
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;   
+    background-attachment: fixed;  
+    backdrop-filter: blur(3px); 
+}
+
+
+.container-login {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+     
+}
+
+.login-wrapper {
+    border-radius: 18px;
+    overflow: hidden;
+    width: 380px !important;
+/*     padding: 0px 0px 10px 45px; */
+    background: white;
+    border: solid thin #efefef;
+    margin-bottom: 80px;
+    filter: blur(0px);
+    
+}
+
+
+.text-center {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-control {
+
+    padding: 9px 15px;
+    height: auto !important;
+    letter-spacing: 0 !important;
+    border-radius: 16px;
+    border: black 1.5px solid; 
+}
+
+.signup {
+    background: #DE5628;
+    border: solid thin #f2f2f2;
+    border-radius: 28px;
+    padding: 12px 62px;
+    color: white;
+    width: auto !important;
+}
+
+.signup:hover {
+
+    background: #9c4322; 
+	cursor: pointer;
+    transition: transform 1s, background 1s;
+    transform: scale(1.1); 
+  } 
+
+
+.torange {
+    color: #ec9f47 !important;
+    text-decoration: none;
+}
+
+
+
+#_dologin input{
+    margin-top: 15px;
+    width: 70%;
+
+}
+
+.mt-20{
+    margin-top: 20px;
+}
+
+.pt-10{
+    padding: 12px 62px;
+}
+
+.mb-15{
+    margin-bottom: 15px;
+}
+
+@media (max-width: 575.98px){
+    .container-login .login-wrapper {
+        padding: 15px 15px 20px;
+        margin: 10px!important;
+    }
+}
+    

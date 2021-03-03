@@ -21,10 +21,21 @@ app.use(bodyParser.json());
 app.use(cors());
 
 //Global routes
-app.use(require("./routes/index"));
+app.use(require("./routes/Index"));
 
 //Generamos la conexion con la base de datos de MONGODB
-mongoose.connect("mongodb://localhost:27017/complaints_app", {
+/* mongoose.connect("mongodb://localhost:27017/complaints_app", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+    useCreateIndex: true,
+});
+ */
+//Conexion con atlas
+
+
+
+ mongoose.connect("mongodb+srv://rubenwest:Zangetsu2.@cluster0.nvm1m.mongodb.net/FixIt_app?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
