@@ -24,6 +24,19 @@
     flex-wrap: wrap;
   }
   
+.d-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.m-10{
+  margin: 50px;
+}
+
+.d-flex
+
   .row-space {
     -webkit-box-pack: justify;
     -webkit-justify-content: space-between;
@@ -219,6 +232,7 @@
   .p-b-100 {
     padding-bottom: 100px;
   }
+  
   
   .m-r-45 {
     margin-right: 45px;

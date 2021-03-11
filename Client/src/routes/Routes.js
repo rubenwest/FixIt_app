@@ -10,11 +10,11 @@ function Routes() {
         
         <BrowserRouter>
             <Switch>
-                <Route exact path="/" component={Login}></Route>
-                <Route exact path="/UserMenu" component={UserMenu}></Route>
-                <Route exact path="/Register" component={Register}></Route>
+                <Route exact path="/" component={Login}/>
+                <Route exact path="/UserMenu" component={UserMenu}/>
+                <Route exact path="/Register" component={Register}/>
                 {/* <Route exact path="/Register2" component={Register2}></Route> */}
-                <Route exact path="/ForgotPassword" component={ForgotPassword}></Route>
+                <Route exact path="/ForgotPassword" component={ForgotPassword}/>
             </Switch>
         </BrowserRouter>
     )

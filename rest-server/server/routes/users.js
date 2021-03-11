@@ -12,10 +12,12 @@ router.get("/", (req, res) => {
 //creamos el metodo post
 
 router.post("/", (req, res) => {
-    let body = req.body;
 
+  // expected output: "Hello World"
+
+  let body = req.body;
   let user = new User({
-    name: body.name,
+    name: body.first_name.concat(' ',body.last_name),
     email: body.email,
     password: bcrypt.hashSync(body.password, 10),
     role: body.role,
@@ -23,11 +25,13 @@ router.post("/", (req, res) => {
 
   user.save((err, userDB) => {
     if (err) {
+      console.log("Error al insertar: ",err);
       res.status(400).json({
         ok: false,
         err,
       });
     } else {
+      console.log("insertardo el maquina: ",userDB);
       res.json({
         ok: true,
         user: userDB,

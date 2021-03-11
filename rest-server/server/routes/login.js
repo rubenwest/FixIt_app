@@ -13,7 +13,6 @@ router.post("/", (req, res) => {
 
         const body = req.body;
         
-
         User.findOne({ email: body.email }, (error, userDB) => {
 
             if (error !== null) {
@@ -23,13 +22,10 @@ router.post("/", (req, res) => {
                     error
                 })
             }
-
             if (userDB == null) {
                 return res.status(400).json({
                     ok: false,
                     error: {
-                        message: email,
-                        message: password,
                         message: bcrypt.hashSync(body.password, 10),
                         message: "invalid (User) or password"
                     }
@@ -58,6 +54,7 @@ router.post("/", (req, res) => {
                 user: userDB,
                 token,
             });
+            
 
         })
 
@@ -68,8 +65,6 @@ router.post("/", (req, res) => {
         })
     }
     
-    
 });
-
 
 module.exports = router;

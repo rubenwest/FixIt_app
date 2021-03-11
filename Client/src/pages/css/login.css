@@ -1,13 +1,13 @@
 body{
-    background-image: url(../img/playadefondo.jpg);
-    height: 100vh;
-    width: 100vw;
+    background-image: url(../img/playadefondo.jpg) !important;
+    height: 100vh !important;
+    width: 100vw !important;
     /* min-height: 100%; */
-    background-size: cover;
-    background-repeat: no-repeat;
-    position: relative;   
-    background-attachment: fixed;  
-    backdrop-filter: blur(3px); 
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    position: relative !important;   
+    background-attachment: fixed !important;  
+    backdrop-filter: blur(3px) !important; 
 }
 
 
