@@ -23,19 +23,46 @@
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
   }
-  
+  #laprueba{
+    background-color: #4dae3c;
+    width: 1127px !important;
+    margin-left: auto!important;
+    margin-right: auto!important;
+    display: flex;
+    flex-wrap: wrap
+  }
+
+
+  #hijoprueba{
+    background-color:#ccaf61;
+    padding: 30px;
+    width: 290px;
+    margin: 15px;
+  }
+
+  .container {
+    width: 1127px;
+    margin-left: auto!important;
+    margin-right: auto!important;
+  }
 .d-flex {
-  display: flex;
+  display: flex !important;
   align-items: center;
   justify-content: center;
   text-align: center;
 }
-
+.w-200 {
+  width: 200px;
+}
 .m-10{
   margin: 50px;
 }
 
-.d-flex
+.m-25{
+  margin: 25px;
+}
+
+
 
   .row-space {
     -webkit-box-pack: justify;

@@ -4,21 +4,28 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const R = require('ramda');
 const cors = require('cors');
-
-//Asignamos el expres a nuestra aplicacion
+const bodyParser = require("body-parser");
 
 //Importamos el archivo de configuracion del servidor
 require("./config/config");
+
+//Asignamos el expres a nuestra aplicacion
+
 const app = express();
-const bodyParser = require("body-parser");
+
+//CORS
+app.use(cors());
 
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true  }));
 
 // parse application/json
 app.use(bodyParser.json());
 
-app.use(cors());
+// request handlers
+app.get('/', (req, res) => {
+    res.status(200).json({ message: 'Enable CORS in Node.js' });
+  });
 
 //Global routes
 app.use(require("./routes/Index"));
@@ -32,8 +39,6 @@ app.use(require("./routes/Index"));
 });
  */
 //Conexion con atlas
-
-
 
  mongoose.connect("mongodb+srv://rubenwest:Zangetsu2.@cluster0.nvm1m.mongodb.net/FixIt_app?retryWrites=true&w=majority", {
     useNewUrlParser: true,

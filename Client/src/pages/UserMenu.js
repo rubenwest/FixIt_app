@@ -1,41 +1,52 @@
+import {useEffect, useState} from 'react';
 import './css/userMenu.css';
 import jwt_decode from "jwt-decode";
-import { Container, Card, Icon, Image, Button, Dropdown, Menu } from 'semantic-ui-react';
+import { Container } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css'; 
+import LoadIncidents from './components/LoadIncidents';
 
-function LoadIncidents(id) {
-    console.log("LoadIncidents");
+function PreLoadIncidents(id,data,dispatch) {
+
+    console.log("Le enviamos a LoadIncidents: ",id);
+
     const requestOptions = {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(id)
+        headers: { 'Content-Type': 'application/json'},
+        body: JSON.stringify({user: id})
     };
-
-    fetch('http://localhost:3000/Incidents', requestOptions)
-
-    .then(response => {
-      
-      return response.json();
-      
-    })
-    .then(response=>{
-        return response.json();
-    })
-    .catch((error) => {
-        console.log(error);
-      });
     
+    useEffect(() => {
+
+        fetch('http://localhost:3000/LoadIncidents', requestOptions)
+        .then(response =>  response.json())
+        .then(data => { 
+                dispatch({data, error: null, isloading: false }) 
+                console.log(data);
+            })
+        .catch((error) => {
+            dispatch({data: null, error: null, isloading: false })
+            console.log("Error en el fetch",error);
+        })
+    }, []);
 }
 
 function UserMenu() {
     
     const token = localStorage.getItem("token");
     const rur = jwt_decode(token); 
-    const id = rur.user.id;
+    const id = rur.user._id;
+    console.log(rur);
+    console.log(rur.user);
 
+    const [{data, error, isloading}, dispatch] = useState({
+        data: null,
+        error: null,
+        isloading: true
+    });
+    
     //cargamos todas las incidencias asignadas a esta persona
 
-    LoadIncidents(id);
+    PreLoadIncidents(id,data,dispatch);
 
     console.log(rur.user.email,id);
  
@@ -49,14 +60,53 @@ function UserMenu() {
                     <a className="item">Upcoming Events</a>
                     
                 </div>
-                <div className="ui card row d-flex p-b-100 p-t-100">
+            </Container>
+            <div className="d-flex m-25 row-space container">
+                <LoadIncidents data={data}/>
+                <div className="ui card d-flex">
                     <div className="content p-t-100 ">
                         <h1>Nueva Incidencia</h1>
                         <h1><i className="plus square icon "></i></h1>
-                        <span></span>
                     </div>
                 </div>
-            </Container>
+
+            </div>
+
+            <div id= "laprueba">
+                <div id="hijoprueba">
+                <div className="ui card d-flex">
+                    <div className="content p-t-100 ">
+                        <h1>Nueva Incidencia</h1>
+                        <h1><i className="plus square icon "></i></h1>
+                    </div>
+                </div>
+                </div>
+                <div id="hijoprueba">
+                <div className="ui card d-flex">
+                    <div className="content p-t-100 ">
+                        <h1>Nueva Incidencia</h1>
+                        <h1><i className="plus square icon "></i></h1>
+                    </div>
+                </div>
+                </div>
+                <div id="hijoprueba">
+                <div className="ui card d-flex">
+                    <div className="content p-t-100 ">
+                        <h1>Nueva Incidencia</h1>
+                        <h1><i className="plus square icon "></i></h1>
+                    </div>
+                </div>
+                </div>
+                <div id="hijoprueba">
+                <div className="ui card d-flex">
+                    <div className="content p-t-100 ">
+                        <h1>Nueva Incidencia</h1>
+                        <h1><i className="plus square icon "></i></h1>
+                    </div>
+                </div>
+                </div>
+            </div>
+
         </div> 
     )
 };

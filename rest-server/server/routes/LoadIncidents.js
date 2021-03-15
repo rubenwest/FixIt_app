@@ -1,13 +1,19 @@
 const express = require("express");
 const router = express.Router();
 const Incient = require("../models/incident");
+const app = express();
+
+const cors = require('cors');
+const corsOptions ={
+    origin:'http://localhost:3000', 
+    credentials:true,            //access-control-allow-credentials:true
+    optionSuccessStatus:200
+}
+app.use(cors(corsOptions));
 
 //Creamos el metodo get
 router.get("/", (req, res) => {
-    
-    Incient.find({}, (err, incidents) => {
-        res.status(200).send(incidents)
-    })
+    res.send("holaa este es el get")
 });
 
 
@@ -18,8 +24,10 @@ router.post("/", (req, res) => {
     // expected output: "Hello World"
 
     let body = req.body;
-    Incient.find({}, (err, incidents) => {
-        res.status(200).send(incidents)
+    console.log("lo que llega a loadIncidents: ",body.user);
+    Incient.find({ user: body.user }, (err, incidents) => {
+        console.log("Encontramos: ", incidents);
+        res.status(200).send(incidents);
     })
   });
 

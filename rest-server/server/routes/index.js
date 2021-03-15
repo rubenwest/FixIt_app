@@ -9,4 +9,5 @@ app.use("/district", require("./Districts"));
 app.use("/incidents_types", require("./Incidents_types"));
 app.use("/login", require("./Login"));
 app.use("/search", require("./Search"));
+app.use("/loadIncidents", require("./LoadIncidents"));
 module.exports = app;
