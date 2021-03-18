@@ -16,8 +16,8 @@ function LoadIncidents({data}) {
             data.map(({user, category, date, description, priority, state}) => {
 
                 return(
-                    <div id= "laprueba">
-                        <div className="ui card d-flex p-b-100 p-t-100 row-space">
+                    <div id= "sonDiv">
+                        <div className="ui card d-flex">
                         <div className="image">
                             <img src={logo} alt=""/>
                         </div>

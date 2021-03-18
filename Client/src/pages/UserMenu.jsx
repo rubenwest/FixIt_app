@@ -61,52 +61,32 @@ function UserMenu() {
                     
                 </div>
             </Container>
-            <div className="d-flex m-25 row-space container">
+            <div className="containerDiv">
                 <LoadIncidents data={data}/>
-                <div className="ui card d-flex">
-                    <div className="content p-t-100 ">
-                        <h1>Nueva Incidencia</h1>
-                        <h1><i className="plus square icon "></i></h1>
+                <div id= "sonDiv">
+                        <div className="ui card d-flex">
+                        <div className="image">
+                            <img src="" alt=""/>
+                        </div>
+                        <div className="header"></div>
+                        <div className="meta">
+                                <p className="date"></p>
+                                <p className="date"></p>
+                        </div>
+                        <div className="content p-t-100 ">
+                            <h1>Nueva Incidencia</h1>
+                           
+                                
+                                <h1><i className="plus square icon " onClick={() => window.location.href='./IncidentRegister'}></i></h1>
+                            
+                        </div>
+                        </div>
                     </div>
-                </div>
-
+                
+            <button></button>
             </div>
-
-            <div id= "laprueba">
-                <div id="hijoprueba">
-                <div className="ui card d-flex">
-                    <div className="content p-t-100 ">
-                        <h1>Nueva Incidencia</h1>
-                        <h1><i className="plus square icon "></i></h1>
-                    </div>
-                </div>
-                </div>
-                <div id="hijoprueba">
-                <div className="ui card d-flex">
-                    <div className="content p-t-100 ">
-                        <h1>Nueva Incidencia</h1>
-                        <h1><i className="plus square icon "></i></h1>
-                    </div>
-                </div>
-                </div>
-                <div id="hijoprueba">
-                <div className="ui card d-flex">
-                    <div className="content p-t-100 ">
-                        <h1>Nueva Incidencia</h1>
-                        <h1><i className="plus square icon "></i></h1>
-                    </div>
-                </div>
-                </div>
-                <div id="hijoprueba">
-                <div className="ui card d-flex">
-                    <div className="content p-t-100 ">
-                        <h1>Nueva Incidencia</h1>
-                        <h1><i className="plus square icon "></i></h1>
-                    </div>
-                </div>
-                </div>
-            </div>
-
+            
+            
         </div> 
     )
 };

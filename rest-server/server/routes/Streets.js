@@ -1,13 +1,17 @@
 const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcrypt");
-const District = require("../models/district");
+const Street = require("../models/street");
 const R = require("ramda");
 
 //Creamos el metodo get
 router.get("/", (req, res) => {
-    res.json("GET District");
+    
+  Street.find({}, (err, streets) => {
+        res.status(200).send(streets)
+    })
 });
+
 
 //creamos el metodo post
 
@@ -16,22 +20,25 @@ router.post("/", (req, res) => {
     // expected output: "Hello World"
 
     let body = req.body;
-    let district = new District({
-        district: body.district
+    let street = new Street({
+        street: body.street,
+        district: body.district,
+        latitude: body.latitude,
+        longitude: body.longitude
     });
   
-    district.save((err, districtDB) => { 
+    street.save((err, streetDB) => { 
       if (err) {
-        console.log("Error al insertar el distrito: ",err);
+        console.log("Error al insertar calle: ",err);
         res.status(400).json({
           ok: false,
           err,
         });
       } else {
-        console.log("insertado el distrito: ",districtDB);
+        console.log("insertada la calle: ",streetDB);
         res.json({
           ok: true,
-          district: districtDB,
+          street: streetDB,
         });
       }
     });
@@ -39,11 +46,11 @@ router.post("/", (req, res) => {
 
 router.put("/", (req, res) => {
 
-    res.json("PUT District");
+    res.json("PUT street");
 });
 
 router.delete("/", (req,res) => {
-    res.json("DELETE District");
+    res.json("DELETE street");
 })
 
 module.exports = router;

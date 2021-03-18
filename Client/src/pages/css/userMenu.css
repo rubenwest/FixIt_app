@@ -23,28 +23,28 @@
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
   }
-  #laprueba{
-    background-color: #4dae3c;
-    width: 1127px !important;
-    margin-left: auto!important;
-    margin-right: auto!important;
-    display: flex;
-    flex-wrap: wrap
+  
+  i:hover{
+    cursor: pointer
   }
-
-
-  #hijoprueba{
-    background-color:#ccaf61;
-    padding: 30px;
+  
+  #sonDiv{
+    background-color:darkslategrey;
     width: 290px;
     margin: 15px;
   }
 
-  .container {
+  .containerDiv {
     width: 1127px;
     margin-left: auto!important;
     margin-right: auto!important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 15px;
   }
+  
 .d-flex {
   display: flex !important;
   align-items: center;

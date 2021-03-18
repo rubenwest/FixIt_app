@@ -10,4 +10,5 @@ app.use("/incidents_types", require("./Incidents_types"));
 app.use("/login", require("./Login"));
 app.use("/search", require("./Search"));
 app.use("/loadIncidents", require("./LoadIncidents"));
+app.use("/street", require("./Streets"));
 module.exports = app;

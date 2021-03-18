@@ -3,20 +3,8 @@ const uniqueValidator = require("mongoose-unique-validator");
 const Schema = mongoose.Schema;
 
 const districtSchema = new Schema({
-    name: {
+    district: {
         type: String,
-        required: true
-    },
-    code: {
-        type: String,
-        required: true
-    },
-    latitude: {
-        type: Number,
-        required: true
-    },
-    longitude: {
-        type: Number,
         required: true
     }
 });

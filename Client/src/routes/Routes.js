@@ -1,8 +1,10 @@
 import {BrowserRouter, Switch, Route} from 'react-router-dom'; 
-import Login from '../pages/Login';
-import UserMenu from "../pages/UserMenu";
-import Register from "../pages/Register";
-import ForgotPassword from "../pages/ForgotPassword";
+import Login from '../pages/Login.jsx';
+import UserMenu from "../pages/UserMenu.jsx";
+import Register from "../pages/Register.jsx";
+import ForgotPassword from "../pages/ForgotPassword.jsx";
+import IncidentRegister from "../pages/IncidentRegister.jsx";
+
 
 function Routes() {
     return(
@@ -13,6 +15,7 @@ function Routes() {
                 <Route exact path="/UserMenu" component={UserMenu}/>
                 <Route exact path="/Register" component={Register}/>
                 <Route exact path="/ForgotPassword" component={ForgotPassword}/>
+                <Route exact path="/IncidentRegister" component={IncidentRegister}/>
             </Switch>
         </BrowserRouter>
     )
