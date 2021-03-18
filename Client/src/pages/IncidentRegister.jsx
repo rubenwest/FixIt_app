@@ -2,7 +2,8 @@ import React from 'react';
 import {useEffect, useState} from 'react';
 import './css/register.css';
 import jwt_decode from "jwt-decode";
-import LoadStreets from './components/LoadStreets';
+import LoadElements from './components/LoadElements';
+import Maps from './components/Maps';
 
 function IncidentRegister() {
 
@@ -10,12 +11,14 @@ function IncidentRegister() {
     const rur = jwt_decode(token); 
     const id = rur.user._id;
     console.log("llegamos a IncidentResgister con ",id);
+    const coordinates = localStorage.getItem("coordinates");
+    console.log("Ahora tambien tengo las coordenadas ",coordinates);
 
-    const [{data}, dispatch] = useState({
-        data: ""
+    const [{elements}, dispatch] = useState({
+        elements: ""
     }); 
 
-    PreLoadStreets(data,dispatch);
+    PreLoadElements(elements,dispatch);
 
     return (
 
@@ -29,8 +32,7 @@ function IncidentRegister() {
                                 <div className="ui form">
                                         <div className="field">
                                             <label className="label2" >Tipo de Elemento</label>
-                                            <select multiple="" className="ui dropdown">
-                                            </select>
+                                            <LoadElements elements={elements}/>
                                         </div>
                                     </div>
                                     <div className="ui form">
@@ -44,7 +46,10 @@ function IncidentRegister() {
                                     <div className="ui form">
                                         <div className="field">
                                             <label className="label2">Localización</label>
-                                            <LoadStreets data={data}/>
+                                            
+
+                                            <Maps />
+                                            
                                         </div>
                                     </div>
 
@@ -68,20 +73,20 @@ function IncidentRegister() {
     )
 }
 
-function PreLoadStreets(data,dispatch) {
+function PreLoadElements(elements,dispatch) {
 
     console.log("Cargamos las calles");   
     useEffect(() => {
 
-        fetch('http://localhost:3000/Street')
+        fetch('http://localhost:3000/Element')
         .then(response =>  response.json())
-        .then(data => { 
-            console.log("Las calles: ",data); 
-                dispatch({data}) 
-                console.log(data);
+        .then(elements => { 
+            console.log("Los elementos: ",elements); 
+                dispatch({elements}) 
+                console.log(elements);
             })
         .catch((error) => {
-            dispatch({data: null })
+            dispatch({elements: null })
             console.log("Error en el fetch",error);
         })
     }, []);

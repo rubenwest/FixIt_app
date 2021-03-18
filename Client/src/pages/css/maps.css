@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+  }
+
+.location-search-input{
+    font-family: 'Lato', sans-serif;
+    width: 500px;
+    height: 40px;
+    background: none;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: black;
+    font-weight: bold;
+    margin-top: 300px;
+    margin-left: 5rem;
+  
+  }
+  
+  .input-suggestion{
+    font-family: 'Lato', sans-serif !important;
+    width: 500px !important;
+    height: 60px !important;
+    background-color: white !important;
+    border-bottom: 1px black solid !important;
+    display: flex !important;
+    align-items: center !important;
+    font-size: 1rem !important;
+    font-weight: bold !important;
+    color: black !important;
+    margin-left: 1rem !important;
+  }
+  .input-suggestion:hover{
+    background-color: rgb(243, 208, 156) !important;
+  }
