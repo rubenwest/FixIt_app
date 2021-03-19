@@ -17,7 +17,8 @@ router.post("/", (req, res) => {
 
     let body = req.body;
     let incidentType = new IncidentType({
-      incidentType: body.incidentType
+      incidentType: body.incidentType,
+      element: body.element
     });
   
     incidentType.save((err, incidentTypeDB) => { 

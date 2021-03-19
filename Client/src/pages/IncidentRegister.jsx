@@ -3,7 +3,6 @@ import {useEffect, useState} from 'react';
 import './css/register.css';
 import jwt_decode from "jwt-decode";
 import LoadElements from './components/LoadElements';
-import LoadTypesIncidents from './components/LoadTypesIncidents';
 import 'semantic-ui-css/semantic.min.css'; 
 import Maps from './components/Maps';
 import 'antd/dist/antd.css';
@@ -22,13 +21,14 @@ function IncidentRegister() {
     const [{elements}, dispatch] = useState({
         elements: ""
     }); 
-
     const [{typeIncidents}, dispatchTypes] = useState({
         typeIncidents: ""
-    }); 
+        }); 
+    
 
     PreLoadElements(elements,dispatch);
-    PreLoadTypesIncidents(typeIncidents,dispatchTypes);
+    PreLoadTypeIncidents(typeIncidents,dispatchTypes);
+    
     return (
 
 
@@ -42,29 +42,28 @@ function IncidentRegister() {
                                 <div className="ui form">
                                         <div className="field">
                                             <label className="label2" >Tipo de Elemento</label>
-                                            <LoadElements elements={elements}/>
-                                        </div>
-                                    </div>
-                                    <div className="ui form">
-                                        <div className="field">
-                                            <label className="label2">Tipo de Incidencia</label>
-                                            <LoadTypesIncidents typeIncidents={typeIncidents}/>
+                                            <LoadElements elements={elements} typeIncidents={typeIncidents} />
                                         </div>
                                     </div>
  
                                     <div className="ui form">
                                         <div className="field">
-                                            <label className="label2">Localización</label>
+                                            <label className="label2 select">Localización</label>
                                             <Maps />
                                         </div>
                                     </div>
                                     <div className="ui form">
-                                        <div className="field">
-                                            <label>Descripcion</label>
+                                        <div className="field select">
+                                            <label select>Descripcion</label>
                                             <textarea rows="2"></textarea>
                                         </div>
                                     </div>
-
+                                    <div className="ui form">
+                                        <div className="field">
+                                            <label className="label2" >Adjuntar imagenes</label>
+                                            <div className="carrusel"></div>
+                                        </div>
+                                    </div>
                                     <div className="p-t-15">
                                         <button className="btn btn--radius-2 btn--blue" type="submit">Submit</button>
                                     </div>
@@ -78,13 +77,13 @@ function IncidentRegister() {
 
 function PreLoadElements(elements,dispatch) {
 
-    console.log("Cargamos las calles");   
+    console.log("PreLoadElements");   
     useEffect(() => {
 
         fetch('http://localhost:3000/Element')
         .then(response =>  response.json())
         .then(elements => { 
-            console.log("Los elementos: ",elements); 
+            
                 dispatch({elements}) 
                 console.log(elements);
             })
@@ -95,15 +94,15 @@ function PreLoadElements(elements,dispatch) {
     }, []);
 }
 
-function PreLoadTypesIncidents(typeIncidents,dispatchTypes) {
+function PreLoadTypeIncidents(typeIncidents,dispatchTypes) {
 
-    console.log("Cargamos los tipos de incidencias");   
+    console.log("PreLoadTypeIncidents");
     useEffect(() => {
-
-        fetch('http://localhost:3000/incidents_types')
+        
+        fetch('http://localhost:3000/LoadIncidentsTypes')
         .then(response =>  response.json())
         .then(typeIncidents => { 
-            console.log("Los tipos: ",typeIncidents); 
+            
             dispatchTypes({typeIncidents}) 
                 console.log(typeIncidents);
             })
@@ -112,6 +111,9 @@ function PreLoadTypesIncidents(typeIncidents,dispatchTypes) {
             console.log("Error en el fetch",error);
         })
     }, []);
+    
 }
+
+
 
 export default IncidentRegister

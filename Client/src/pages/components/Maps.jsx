@@ -3,51 +3,6 @@ import {useEffect, useState} from 'react';
 import PlacesAutocomplete, {geocodeByAddress, getLatLng  } from 'react-places-autocomplete';
 import '../css/maps.css';
 
-
-/* const useCurrentLocation = () => {
-
-        // Creamos los useState para las funciones de succes y error
-
-        const [error, setError] = useState();
-        const [location, setLocation] = useState();
-  
-        useEffect(() => {
-
-        // Si el navegador no soporta la geolocalizacion, lo informamos
-        if (!navigator.geolocation) {
-            setError('Geolocation is not supported.');
-            return;
-        }
-        }, []);
-
-
-      // Definimos la Succes function para el metodo de geolocalizacion
-
-        const handleSuccess = position => {
-
-            const { latitude, longitude } = position.coords;
-            setLocation({latitude, longitude});
-    
-        };
-
-         // Definimos la Error function para el metodo de geolocalizacion
-        const handleError = error => {
-            setError(error.message);
-        };
-
-        useEffect(() => {
-            // ...
-          
-            // Call the Geolocation API
-            navigator.geolocation.getCurrentPosition(handleSuccess, handleError);
-          
-            // ...
-          }, []);
-    
-    return { location, error };
-
-  }; */
-
 export default function Maps() {
 
    
@@ -109,8 +64,9 @@ export default function Maps() {
               </div>
             )}
           </PlacesAutocomplete>
-          <p>Latitude: {coordinates.lat}</p>
-          <p>Longitude: {coordinates.lng}</p>
+
+{/*           <p>Latitude: {coordinates.lat}</p>
+          <p>Longitude: {coordinates.lng}</p> */}
         </div>
       );
 }

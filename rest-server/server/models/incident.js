@@ -3,6 +3,7 @@ const uniqueValidator = require("mongoose-unique-validator");
 const Schema = mongoose.Schema;
 const User = require("../models/user");
 const IncidentType = require("../models/incident_type");
+const Element = require("../models/element");
 
 /* const IncidentsType = mongoose.model('IncidentsTypes'); */
 
@@ -26,6 +27,8 @@ const incidentSchema = new Schema({
         required: true
     },
 
+    element: {type: Schema.ObjectId, ref: Element, required: true }
+    ,
     incidentType: { type: Schema.ObjectId, ref: IncidentType, required: true 
             },
     priority: {

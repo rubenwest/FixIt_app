@@ -10,6 +10,7 @@ app.use("/incident_type", require("./Incidents_types"));
 app.use("/login", require("./Login"));
 app.use("/search", require("./Search"));
 app.use("/loadIncidents", require("./LoadIncidents"));
+app.use("/loadIncidentsTypes", require("./LoadIncidentsTypes"));
 app.use("/street", require("./Streets"));
 app.use("/element", require("./Elements"));
 module.exports = app;
