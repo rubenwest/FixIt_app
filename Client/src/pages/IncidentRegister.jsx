@@ -3,10 +3,15 @@ import {useEffect, useState} from 'react';
 import './css/register.css';
 import jwt_decode from "jwt-decode";
 import LoadElements from './components/LoadElements';
+import LoadTypesIncidents from './components/LoadTypesIncidents';
+import 'semantic-ui-css/semantic.min.css'; 
 import Maps from './components/Maps';
+import 'antd/dist/antd.css';
+import { Select } from 'antd';
 
 function IncidentRegister() {
 
+    const { Option } = Select;
     const token = localStorage.getItem("token");
     const rur = jwt_decode(token); 
     const id = rur.user._id;
@@ -18,9 +23,14 @@ function IncidentRegister() {
         elements: ""
     }); 
 
-    PreLoadElements(elements,dispatch);
+    const [{typeIncidents}, dispatchTypes] = useState({
+        typeIncidents: ""
+    }); 
 
+    PreLoadElements(elements,dispatch);
+    PreLoadTypesIncidents(typeIncidents,dispatchTypes);
     return (
+
 
         <div className="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
                     <div className="wrapper wrapper--w680">
@@ -38,29 +48,22 @@ function IncidentRegister() {
                                     <div className="ui form">
                                         <div className="field">
                                             <label className="label2">Tipo de Incidencia</label>
-                                            <select multiple="" className="ui dropdown">
-                                            </select>
+                                            <LoadTypesIncidents typeIncidents={typeIncidents}/>
                                         </div>
                                     </div>
  
                                     <div className="ui form">
                                         <div className="field">
                                             <label className="label2">Localización</label>
-                                            
-
                                             <Maps />
-                                            
                                         </div>
                                     </div>
-
-                                     
                                     <div className="ui form">
                                         <div className="field">
                                             <label>Descripcion</label>
                                             <textarea rows="2"></textarea>
                                         </div>
                                     </div>
-  
 
                                     <div className="p-t-15">
                                         <button className="btn btn--radius-2 btn--blue" type="submit">Submit</button>
@@ -87,6 +90,25 @@ function PreLoadElements(elements,dispatch) {
             })
         .catch((error) => {
             dispatch({elements: null })
+            console.log("Error en el fetch",error);
+        })
+    }, []);
+}
+
+function PreLoadTypesIncidents(typeIncidents,dispatchTypes) {
+
+    console.log("Cargamos los tipos de incidencias");   
+    useEffect(() => {
+
+        fetch('http://localhost:3000/incidents_types')
+        .then(response =>  response.json())
+        .then(typeIncidents => { 
+            console.log("Los tipos: ",typeIncidents); 
+            dispatchTypes({typeIncidents}) 
+                console.log(typeIncidents);
+            })
+        .catch((error) => {
+            dispatchTypes({typeIncidents: null })
             console.log("Error en el fetch",error);
         })
     }, []);

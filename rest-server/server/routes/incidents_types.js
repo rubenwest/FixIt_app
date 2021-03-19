@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcrypt");
-const IncientType = require("../models/incidents_types");
+const IncidentType = require("../models/incident_type");
 const R = require("ramda");
 
 //Creamos el metodo get
@@ -16,11 +16,11 @@ router.post("/", (req, res) => {
     // expected output: "Hello World"
 
     let body = req.body;
-    let incientType = new IncientType({
-        category: body.category
+    let incidentType = new IncidentType({
+      incidentType: body.incidentType
     });
   
-    incientType.save((err, incientTypeDB) => { 
+    incidentType.save((err, incidentTypeDB) => { 
       if (err) {
         console.log("Error al insertar categoria: ",err);
         res.status(400).json({
@@ -28,10 +28,10 @@ router.post("/", (req, res) => {
           err,
         });
       } else {
-        console.log("insertada la categoria: ",incientTypeDB);
+        console.log("insertada la categoria: ",incidentTypeDB);
         res.json({
           ok: true,
-          incientType: incientTypeDB,
+          incidentType: incidentTypeDB,
         });
       }
     });
@@ -39,11 +39,11 @@ router.post("/", (req, res) => {
 
 router.put("/", (req, res) => {
 
-    res.json("PUT IncientTypes");
+    res.json("PUT incidentType");
 });
 
 router.delete("/", (req,res) => {
-    res.json("DELETE IncientTypes");
+    res.json("DELETE incidentType");
 })
 
 module.exports = router;

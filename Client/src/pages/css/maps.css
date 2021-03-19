@@ -1,9 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
+
 *{
     margin:0;
     padding:0;
   }
+
+.select-elements{
+  font-family: 'Lato', sans-serif ;
+  background: none;
+  border: 2px solid black;
+  font-size: 1rem;
+  color: black;
+  font-weight: bold;
+}
+
+.select-elements-uno{
+  font-family: 'Lato', sans-serif ;
+  background: none;
+  border: 2px solid black;
+  font-size: 1rem;
+  color: black;
+  font-weight: bold;
+  opacity: 4;
+  color: darkgray;
+  text-align: start;
+}
+
 
 .location-search-input{
     font-family: 'Lato', sans-serif;
@@ -36,3 +59,4 @@
   .input-suggestion:hover{
     background-color: rgb(243, 208, 156) !important;
   }
+

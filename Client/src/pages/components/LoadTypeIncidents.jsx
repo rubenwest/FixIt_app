@@ -3,17 +3,14 @@ import '../css/maps.css';
 import 'antd/dist/antd.css';
 import { Select } from 'antd';
 
-export default function LoadElements({elements}) {
+export default function LoadTypeIncidents({typeIncidents}) {
 
     const { Option } = Select;
-    console.log("Cargamos los elements: ",elements);
-    console.log("Tamaño de elements: ",elements.length);
+    console.log("Cargamos los tipos de incidencias: ",typeIncidents);
 
-    if (elements.length > 0) {
+    if (typeIncidents.length > 0) {
         return (
-            
 
-                
         <>
             <Select
                showSearch
@@ -21,11 +18,11 @@ export default function LoadElements({elements}) {
                placeholder="Elige (Farola, Papelera ...)"            
             >
                     {
-                    elements.map(({element}) => {
+                    typeIncidents.map(({typeIncident}) => {
     
                         return(
 
-                                <Option key={element} value={element}>{element}</Option>
+                                <Option key={typeIncident} value={typeIncident}>{typeIncident}</Option>
 
                         
                         )
