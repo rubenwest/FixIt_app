@@ -1,29 +1,58 @@
 import React from 'react';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
+import {getTypeIncidents,getElements} from '../Users/services/index';
 import '../css/maps.css';
 import 'antd/dist/antd.css';
 import 'semantic-ui-css/semantic.min.css'; 
 import { Select } from 'antd';
 
-export default function LoadElements({elements, typeIncidents})    {
+export default function LoadElements()  {
 
+    const [elements, setElements] = useState([]); 
+    const [typeIncidents, setTypeIncidents] = useState([]); 
     const { Option } = Select;
     const [address, setAddress] = useState("");
-    let [ruben, setRuben] = useState([]);
-    let filtrado=[]; 
+    let [filterTypes, setfilterTypes] = useState([]);
+    let filtrado=[];
     
-    /* ruben = Object.values(typeIncidents); */
+    async function loadElements() {
 
-    const HandleSelectElement = async value => {
+        const resElements =  await getElements();
+        const resTypesIncidents =  await getTypeIncidents();
 
-        localStorage.setItem("element",value);
+        if (resElements.status === 200) {
+            setElements(resElements.data)  
+        }
+        if (resTypesIncidents.status === 200) {
+            setTypeIncidents(resTypesIncidents.data)  
+        }
+        
+    }
+
+    useEffect( ()=>{
+        loadElements();
+    },[])
+
+   
+    const HandleSelectElement = async (value,element) => {
+
+        
+        localStorage.setItem("element",element.children);
+        
         filtrado = Object.values(typeIncidents).filter(element => element.element == value);
-        setRuben(filtrado);       
+        setfilterTypes(filtrado);  
+        console.log("localStorage_element: ",element.children);
+        const localStorage_element= localStorage.getItem("element");
+        console.log("localStorage_typeElement: ",localStorage_element);     
       };
 
-    const handleSelectTypes = async value => {
+    const handleSelectTypes = (incidentType,value) => {
+      
 
-      localStorage.setItem("typeElement",value);
+      localStorage.setItem("typeElement",value.children);
+      const localStorage_typeElement= localStorage.getItem("typeElement");
+      console.log("localStorage_typeElement: ",localStorage_typeElement);
+      
     };
     
 
@@ -46,10 +75,7 @@ export default function LoadElements({elements, typeIncidents})    {
                         elements.map(({element,_id}) => {
         
                             return(
-
-                                    <Option key={element} value={_id}>{element}</Option>
-
-                            
+                                    <Option key={_id} value={_id} >{element}</Option>
                             )
                         })
         
@@ -68,9 +94,9 @@ export default function LoadElements({elements, typeIncidents})    {
                     onSelect={handleSelectTypes}
                     
                                 
-                >
+                    >
                             {
-                            ruben.map(({incidentType,_id}) => { 
+                            filterTypes.map(({incidentType,_id}) => { 
             
                                 return(
         

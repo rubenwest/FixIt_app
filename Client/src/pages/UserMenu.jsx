@@ -1,91 +1,72 @@
 import {useEffect, useState} from 'react';
+import {getIncidents , getAllIncidents} from './Users/services/index';
 import './css/userMenu.css';
 import jwt_decode from "jwt-decode";
-import { Container } from 'semantic-ui-react';
+import Loading from './components/Loading';
 import 'semantic-ui-css/semantic.min.css'; 
-import LoadIncidents from './components/LoadIncidents';
-
-function PreLoadIncidents(id,data,dispatch) {
-
-    console.log("Le enviamos a LoadIncidents: ",id);
-
-    const requestOptions = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json'},
-        body: JSON.stringify({user: id})
-    };
-    
-    useEffect(() => {
-
-        fetch('http://localhost:3000/LoadIncidents', requestOptions)
-        .then(response =>  response.json())
-        .then(data => { 
-                dispatch({data, error: null, isloading: false }) 
-                console.log(data);
-            })
-        .catch((error) => {
-            dispatch({data: null, error: null, isloading: false })
-            console.log("Error en el fetch",error);
-        })
-    }, []);
-}
+import ListIncidents from './components/ListIncidents';
+import { Container } from 'semantic-ui-react';
+import NewIncident from './components/NewIncident';
+import Navbar from './components/Navbar';
+import NewIncident2 from './components/NewIncident2';
 
 function UserMenu() {
     
+    console.log("UserMenu");
+
     const token = localStorage.getItem("token");
-    const rur = jwt_decode(token); 
-    const id = rur.user._id;
-    console.log(rur);
-    console.log(rur.user);
-
-    const [{data, error, isloading}, dispatch] = useState({
-        data: null,
-        error: null,
-        isloading: true
-    });
+    const userLoged = jwt_decode(token); 
+    const user = userLoged.user.email;
     
-    //cargamos todas las incidencias asignadas a esta persona
+    console.log("Cargamos1 Incidencias de: ",user);
+    const [incidents, setIncidents] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    
+    /* getAllIncidents(); */
+  /*   loadIncidents(email); */
+    
+    async function loadIncidents(user) {
 
-    PreLoadIncidents(id,data,dispatch);
+        const resGetIncidents =  await getIncidents(user);
 
-    console.log(rur.user.email,id);
- 
+        if (resGetIncidents.status === 201) {
+            setIncidents(resGetIncidents.data.incidents) 
+            /* console.log(incidents); */ 
+            console.log(resGetIncidents.data.incidents[0]);
+            
+        }
+        setIsLoading(false);
+    }
+
+    useEffect( ()=>{
+        loadIncidents(user);
+    },[])
+
         return (
 
-        <div className="page-wrapper bg-gra-02 p-t-30 "> 
+        <div className="bg-gra-02 p-t-30 ">
             <Container>
-                <div className="ui menu m-10">
-                    <a className="item">Home</a>
-                    <a className="item">About Us</a>
-                    <a className="item">Upcoming Events</a>
-                    
-                </div>
+                <Navbar />
             </Container>
-            <div className="containerDiv">
-                <LoadIncidents data={data}/>
-                <div id= "sonDiv">
-                        <div className="ui card d-flex">
-                        <div className="image">
-                            <img src="" alt=""/>
-                        </div>
-                        <div className="header"></div>
-                        <div className="meta">
-                                <p className="date"></p>
-                                <p className="date"></p>
-                        </div>
-                        <div className="content p-t-100 ">
-                            <h1>Nueva Incidencia</h1>
-                           
-                                
-                                <h1><i className="plus square icon " onClick={() => window.location.href='./IncidentRegister'}></i></h1>
-                            
-                        </div>
-                        </div>
-                    </div>
-                
-            <button></button>
-            </div>
             
+            
+            
+            {
+               isLoading && <Loading />
+            }
+
+            {
+                /* !isLoading && incidents.length && <ListIncidents incidents={incidents}/> */
+                !isLoading && incidents.length && (
+                    
+                        <div className="gallery">
+                            <ListIncidents incidents={incidents}/>
+                            <NewIncident />
+                        </div>
+                    
+                )
+                
+            }
             
         </div> 
     )

@@ -17,14 +17,16 @@ export default function Maps() {
     });
   
     const handleSelect = async value => {
-        console.log("Valor al elegir: ",value);
+
       const results = await geocodeByAddress(value);
-      console.log("results al elegir: ",results);
       const latLng = await getLatLng(results[0]);
-      console.log("latLng al elegir: ",latLng);
       setAddress(value);
       setCoordinates(latLng);
       localStorage.setItem("coordinates",coordinates);
+      localStorage.setItem("address",value);
+      console.log("address: ",value);
+      const localStorage_address= localStorage.getItem("address");
+      console.log("localStorage_address: ",localStorage_address);  
     };
     
 
@@ -42,7 +44,7 @@ export default function Maps() {
                 <input {...getInputProps({               
                                             placeholder: 'Escriba número y calle (10 Calle Quintana)',
                                             className: 'location-search-input', 
-                                        })} />
+                                        })} required/>
     
                 <div  className="autocomplete-dropdown-container">
                   {loading ? <div>...loading</div> : null}
@@ -67,6 +69,8 @@ export default function Maps() {
 
 {/*           <p>Latitude: {coordinates.lat}</p>
           <p>Longitude: {coordinates.lng}</p> */}
+          {localStorage.setItem("latitude",coordinates.lat)}
+          {localStorage.setItem("longitude",coordinates.lng)}
         </div>
       );
 }

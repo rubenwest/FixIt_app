@@ -1,6 +1,7 @@
-import React, {useState, useContext} from 'react';
+import React, {useState} from 'react';
 /* import { ThemeContext } from '../context/context'; */
-import ReactDOM from 'react-dom';
+/* import ReactDOM from 'react-dom'; */
+import {doLogin} from './Users/services/index';
 import {Link} from "react-router-dom";
 import './css/login.css';
 //Aqui importamos nuestra imagen
@@ -9,59 +10,13 @@ import poweredby from "./img/powered2.png";
 
 function Login() {
     
-  const [details, setDetails] = useState({email: "", password:""});
-  
-/*   const {userLoged} = useContext(ThemeContext);
-  const {setUserLoged} = useContext(ThemeContext); */
- 
-  
+  const [details, setDetails] = useState({email: "", password:""}); 
 
   const submitHandler = e => {
 
     e.preventDefault();
+    doLogin(details);
 
-    console.log("Le enviamos a backend",details);
-
-      // Simple POST request with a JSON body using fetch
-    const requestOptions = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(details)
-    };
-  
-    fetch('http://localhost:3000/Login', requestOptions)
-
-    .then(response => {
-      console.log("primer then:",response);
-      return response.json();
-      
-    })
-    .then(response=>{
-
-      if (response.ok) {
-        alert("LOGIN CORRECTO!");
-
-        console.log("Segundo then:");
-        console.log("user: ",response.user);
-        console.log("token: ",response.token);
-
-        localStorage.setItem("token",response.token);
-
-        /*         setUserLoged(response.user); */
-
-        /* console.log("userLoged2: ",userLoged); */
-
-
-        window.location.href='./UserMenu'; 
-        /* Hay que usar aqui el tema de contexto global para meter lo que trae el login en un useState */
-        
-      }else{
-        alert("Login Incorrecto =(")
-      }
-    })
-    .catch((error) => {
-      console.log(error);
-    });
 }
 
     return (

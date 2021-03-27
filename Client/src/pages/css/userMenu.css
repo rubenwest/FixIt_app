@@ -1,4 +1,13 @@
 
+
+.body{
+  background: -webkit-gradient(linear, left bottom, right top, from(#fc6e2c), to(#ccaf61)) !important;
+  background: -webkit-linear-gradient(bottom left, #fc6e2c 0%, #ccaf61 100%) !important;
+  background: -moz-linear-gradient(bottom left, #fc6e2c 0%, #ccaf61 100%) !important;
+  background: -o-linear-gradient(bottom left, #fc6e2c 0%, #ccaf61 100%) !important;
+  background: linear-gradient(to top right, #fc6e2c 0%, #ccaf61 100%) !important;
+}
+
 /* ==========================================================================
    #FONT
    ========================================================================== */
@@ -28,11 +37,90 @@
     cursor: pointer
   }
   
-  #sonDiv{
-    background-color:darkslategrey;
-    width: 290px;
-    margin: 15px;
+
+.fatherDiv{
+  background-color: none;
+  border: lightsteelblue dashed 2px;
+  height: 190px;
+  width: 190px;
+  margin-left: 25px;
+
+}
+
+.gallery {
+  width: 1127px;
+  margin-left: auto!important;
+  margin-right: auto!important;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* align-items: center; */
+    justify-content: space-evenly;
+    /* min-height: 100vh */
+    height: 100%;
+
+}
+
+.ruben{
+  display: block;
+
+  margin: 3%;
+  opacity: 0.9;
+  width: 25%;
+/*   height: 100px; */
+  transition: transform 1s;
+  border-radius: 5px;
+}
+
+.ruben2{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25%;
+/*   height: 100px; */
+  transition: transform 1s;
+  border-radius: 5px;
+}
+
+.content{
+  background-color: white;
+  padding: 10px;
+}
+
+.sonGallery {
+  display: block;
+  margin-top: 3%;
+  opacity: 1;
+  width: 100%;
+  height: 220px;
+  /* opacity: 0.7; */
+  transition: transform 1s;
+  border-radius: 5px;
+  background-size: cover;
+  background-repeat: no-repeat;
+
   }
+
+  .ruben:hover{
+
+    transition: opacity 1s linear 0.4s;
+    opacity: 1;
+    cursor: pointer;
+   gap: 10px;
+   transition: transform 1s, opacity 0.5s;
+   transform: scale(1.1); 
+ 
+ }
+
+
+
+  .sonDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 33%;
+  }
+
 
   .containerDiv {
     width: 1127px;
@@ -40,7 +128,7 @@
     margin-right: auto!important;
     display: flex;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
     flex-wrap: wrap;
     margin: 15px;
   }
@@ -161,13 +249,14 @@
      #PAGE WRAPPER
      ========================================================================== */
   .page-wrapper {
-    min-height: 100vh;
+    min-height: 500vh;
   }
   
   body {
     font-family: "Poppins", "Arial", "Helvetica Neue", sans-serif;
     font-weight: 400;
     font-size: 14px;
+    
   }
   
   h1, h2, h3, h4, h5, h6 {
