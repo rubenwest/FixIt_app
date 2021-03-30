@@ -11,7 +11,6 @@ app.use("/user", require("./Users"));
 app.use("/incident", require("./Incidents"));
 app.use("/incident_type", require("./Incidents_types"));
 app.use("/login", require("./Login"));
-app.use("/search", require("./Search"));
 /* app.use("/loadIncidents", require("./LoadIncidents")); */
 app.use("/loadIncidentsTypes", require("./LoadIncidentsTypes"));
 app.use("/element", require("./Elements"));

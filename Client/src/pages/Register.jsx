@@ -1,106 +1,122 @@
 import {useState} from 'react';
+import { addUser, searchUser } from './services/index'
 import './css/register.css';
+import Maps from '../pages/components/User_Components/Maps';
+import poster from '../pages/img/video.jpg';
+import video from '../pages/img/video.mp4';
+import hello from '../pages/img/hello.gif';
+import swal from 'sweetalert';
+import Swal from 'sweetalert2'
 
+ 
 
+ 
 
 function Register() {
 
-  const [details, setDetails] = useState({first_name: "", last_name:"", email:"", gender:"", password:"", rPassword:""});
+  const [details, setDetails] = useState({name: "", surname:"", address: "", email:"", gender:"", password:"", rPassword:""});
+
 
   const submitHandler = e => {
 
         e.preventDefault();
+
         console.log("Le enviamos a backend",details.email);
 
 
 //Primero nos aseguramos que ha rellenado bien los campos de ambas contraseñas
 
-        if (details.password==details.rPassword) {
-                
-                const requestOptions = {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(details)
-                };  
-                //Buscamos el email en la BBDD para controlar no crear
-                fetch('http://localhost:3000/search', requestOptions)
+        if (details.password!==details.rPassword) {
+            /* swal("Las contraseñas deben coincidir", "", "error"); */
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Las contraseñas deben coincidir!'
+              })
 
-                .then(response => {
-                            console.log(response);
-                            return response;
-                        })
-                .then(response=>{
-                        console.log("Respuesta: ",response);
-                        if (!response.ok) {
-                            let userExist = response.ok;
-                            alert("El usuario ya existe");
-                        }else{
-                            console.log("hacer el alta de usuario");
-                            userRegistration(details);
-                        } 
-                        })
-                .catch((error) => {
-                        console.log(error);
-                        });
-
-        }else{
-            alert("Las password deben ser iguales")
         }
+        else{
+            verifyEmail(details);
+        }
+
+}
+
+async function verifyEmail(details) {
+
+    const responSearch = await searchUser(details);
+
+    if (!responSearch.data.ok) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Email ya registrado!'
+          })
+        console.log(responSearch);
+    }else{
+
+        registerUser(details);
+        
     }
+    
+}
 
-    function userRegistration(details) {
+async function registerUser(details) {
 
-        console.log("Esto le enviamos al registro: ",details);
+    const responAddUser = await addUser(details);
 
-        const requestOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(details)
-        };
+    if (responAddUser.status===201) {
+        /* swal("Bienvenido al equipo", "", "success"); */
 
-        fetch('http://localhost:3000/User', requestOptions)
-        .then(response => {
-            console.log(response);
-            return response;
-        })
-        .then(response=>{
-            if (!response.ok) {
-                alert("Algo ha ido mal");
-            }else{
-                console.log("Insertado bro");
-                alert("Usuario insertado");
-            } 
-            })
-        .catch((error) => {
-               console.log(error);
-              });
+        Swal.fire({
+            icon: 'success',
+            title: '',
+            text: 'Te has registrado en Fix-It!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href='../';
+            }
+          })
+      
+    }else{
+        console.log(responAddUser);
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong!'
+          })
+        
     }
+}
+
 
     return (
 
-        <div className="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
+        <div className=" font-poppins">
+            <video poster={poster} loop autoPlay muted>
+				<source src={video} type="video/mp4" />
+			</video>
                 <div className="wrapper wrapper--w680">
-                    <div>
-                        <p className="alert alert-error" role="alert">
-                            Lo sentimos. Este email ya existe en nuestra base de daots, indique un email valido.
-                        </p>
-                    </div>
-                    <div className="card card-4">
 
+
+                    <div className="card card-4 box">
+                    <h2 className="title">Registro</h2>
+                <div class="animate__animated animate__bounce animate__delay-5s">Example</div>
+                <h1 class="animate__animated animate__bounce">An animated element</h1>
                         <div className="card-body">
-                            <h2 className="title">Registro</h2>
+                            
+
                             <form method="post" onSubmit={submitHandler}>
                                 <div className="row row-space">
                                     <div className="col-2">
                                         <div className="input-group">
                                             <label className="label">Nombre</label>
-                                            <input className="input--style-4" type="text" name="first_name" onChange={e => setDetails({...details, first_name: e.target.value})} value={details.first_name}/>
+                                            <input className="input--style-4" type="text" name="name" onChange={e => setDetails({...details, name: e.target.value})} value={details.name}/>
                                         </div>
                                     </div>
                                     <div className="col-2">
                                         <div className="input-group">
                                             <label className="label">Apellidos</label>
-                                            <input className="input--style-4" type="text" name="last_name" onChange={e => setDetails({...details, last_name: e.target.value})} value={details.last_name}/>
+                                            <input className="input--style-4" type="text" name="surname" onChange={e => setDetails({...details, surname: e.target.value})} value={details.surname}/>
                                         </div>
                                     </div>
                                 </div>
@@ -127,6 +143,13 @@ function Register() {
                                                 </label>
                                             </div>
                                         </div>
+                                    </div>
+                                </div>
+                                
+                                <div className="ui form mb-15">
+                                    <div className="col-6">
+                                        <label className="label">Localizacion</label>
+                                        <Maps  detailsIncidents={details} setDetailsIncidents={setDetails}/>
                                     </div>
                                 </div>
                                 <div className="row row-space">

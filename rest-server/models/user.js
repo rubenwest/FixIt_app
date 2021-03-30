@@ -7,12 +7,16 @@ const validRoles = {
 };
 
 const userSchema = new Schema({
-    name: {
-        type: String
-    },
+
+
+    name: String,
+    surname: String,
+    address: String,
+
     email: {
         type: String,
-        unique: true
+        unique: true,
+        required: true
     },
     password: {
         type: String,

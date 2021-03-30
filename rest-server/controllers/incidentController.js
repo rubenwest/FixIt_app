@@ -1,7 +1,9 @@
 const Incient = require("../models/incident");
 
 async function getAllIncidents(req,res) {
+    console.log("getAllIncidents");
     const incidents = await Incient.find().lean().exec()
+    console.log(incidents);
     res.status(200).send({incidents})
 }
 
