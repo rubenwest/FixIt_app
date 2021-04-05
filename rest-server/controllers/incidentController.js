@@ -1,31 +1,34 @@
-const Incient = require("../models/incident");
+const Incident = require("../models/incident");
+
 
 async function getAllIncidents(req,res) {
-    console.log("getAllIncidents");
-    const incidents = await Incient.find().lean().exec()
-    console.log(incidents);
+    const incidents = await Incident.find().lean().exec()
     res.status(200).send({incidents})
 }
 
 async function addIncident(req,res) {
 
     try {
+        console.log('incident:',req.body);
         
+
         const {
-            user,
+            email,
             element,
             incidentType,
             description,
             address
         } = req.body
 
-        const incident = Incient ({
-            user,
+        const incident = Incident ({
+            email,
             element,
             incidentType,
             description,
             address
         })
+
+        console.log('incident:',incident);
 
         if (req.file) {
             const { filename } = req.file
@@ -42,18 +45,33 @@ async function addIncident(req,res) {
     }
 }
 
+async function finishedIncident(req,res) {
+
+    try {
+
+        console.log("finishedIncident");
+
+        const body = req.body;
+        const id = body.id;
+        console.log("id:",id);
+        console.log("body:",body);
+        const incidentStored = await Incident.findByIdAndUpdate(id, body, {useFindAndModify: false})
+
+        res.status(201).send({incidentStored});
+
+        console.log("incidentStored:",incidentStored);
+
+    } catch (error) {
+        res.status(500).send({message: error.message})
+    }
+}
 
 async function getIncidents(req,res) {
 
     try {
-        console.log("getIncidents");
 
-        console.log("user",req.body);
-
-        const {user} = req.body
-
-        const incidents = await Incient.find({ user: user }).lean().exec()
-        console.log(incidents);
+        const {email} = req.body
+        const incidents = await Incident.find({ email: email }).lean().exec()
         res.status(201).send({incidents})
 
     } catch (error) {
@@ -66,5 +84,6 @@ async function getIncidents(req,res) {
 module.exports = {
     addIncident,
     getIncidents,
+    finishedIncident,
     getAllIncidents
 }

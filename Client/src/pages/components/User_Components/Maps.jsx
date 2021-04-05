@@ -54,7 +54,7 @@ export default function Maps({detailsIncidents,setDetailsIncidents}) {
                     return (
                       <div className="input-suggestion"
                             {...getSuggestionItemProps(suggestion, { style })}>
-                        <i class="material-icons">location_on  </i> <span>{suggestion.description}</span>
+                        <i className="material-icons">location_on  </i> <span>{suggestion.description}</span>
                       </div>
                       
                     );

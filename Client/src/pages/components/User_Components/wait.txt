@@ -1,0 +1,59 @@
+                            <div className='ruben' key={_id} >
+                                        
+                                        <div className='sonGallery' style={{backgroundImage: `url(${imgUrl})`,
+                                                                            textAlign: 'right'}} >
+                                            
+                                            {
+                                              state =='En proceso' ?  <div id='xMarc' onClick={() => {quitIncident(_id,email,address)}} >
+                                              <SvgXmarc />
+                                          </div> : <div className= 'darkRuben' >
+                                                <SvgCheck />
+                                            </div>
+                                            }
+                                            
+                                            {
+                                               state =='Solucionada' ? <div className='darkRuben2'></div> : ''
+                                            }
+                                        </div>    
+                                        <div className='content'>
+                                       
+
+                                            <div role='list' className='ui list'>
+                                                <div role='listitem' className='item'>
+                                                    <i aria-hidden='true' className='user circle outline icon'></i>
+                                                    <div className='content'>{name}</div>
+                                                </div>
+                                                <div role='listitem' className='item'>
+                                                            <i aria-hidden='true' className='marker icon'></i>
+                                                <div className='content'>{address}</div>
+                                                </div>
+                                                <div role='listitem' className='item'>
+                                                    <i aria-hidden='true' className='mail icon'></i>
+                                                    <div className='content'>
+                                                        <a href=''>{email}</a>
+                                                    </div>
+                                                </div>
+                                                <div role='listitem' className='item'>
+                                                    <i aria-hidden='true' className='calendar alternate icon'></i>
+                                                    <div className='content'><p>{format(date)}</p></div>
+                                                </div>
+                                                <div role='listitem' className='item'>
+                                                    <i aria-hidden='true' className='bullhorn icon'></i>
+                                                    <div className='content'>Elemento: {element}</div>
+                                                </div>
+                                                <div role='listitem' className='item'>
+                                                    <i aria-hidden='true' className='bug icon'></i>
+                                                    <div className='content'><p>Incidencia: {incidentType}</p></div>
+                                                </div>
+                                                <div role='listitem' className='item'>
+                                                    <i aria-hidden='true' className='thermometer quarter icon'></i>
+                                                    <div className='content'><p>Estado: {state}</p></div>
+                                                </div>
+                                                <div role='listitem' className='item'>
+                                                    <i aria-hidden='true' className='keyboard icon'></i>
+                                                    <div className='content'><p>Descripcion: {description}</p></div>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>    
+                                    </div>  

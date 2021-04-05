@@ -1,9 +1,6 @@
 const mongoose = require("mongoose");
 const uniqueValidator = require("mongoose-unique-validator");
 const Schema = mongoose.Schema;
-const User = require("../models/user");
-const IncidentType = require("../models/incident_type");
-const Element = require("../models/element");
 
 /* const IncidentsType = mongoose.model('IncidentsTypes'); */
 
@@ -12,14 +9,11 @@ const validPriority = {
     message: "{VALUE} is not a valid role"
 };
 
-const validState = {
-    values: ["En proceso", "Gestionada", "Cerrada"],
-    message: "{VALUE} is not a valid role"
-};
+
 
 const incidentSchema = new Schema({
 
-    user: String,
+    email: String,
     element: String,
     incidentType: String,
     description: String,
@@ -33,8 +27,7 @@ const incidentSchema = new Schema({
     state:  {
         type: String,
         required: true,
-        default: "En proceso",
-        enum: validState
+        default: "En proceso"
     }   
     ,date: {
         type: Date, 

@@ -34,12 +34,12 @@ const Sidebar = () => {
               
               <Link to="work" smooth={true} duration={1000} className="w3-bar-item w3-button" ><i className="fa fa-th" /> WORK</Link>
               <Link to="contact" smooth={true} duration={1000} className="w3-bar-item w3-button" ><i className="fa fa-envelope" /> CONTACT</Link>
-              <div class="w3-dropdown-hover w3-hide-small"style={{marginRight: '20px'}} >
-                <button class="w3-button" title="Notifications" ><i class="far fa-user-circle" /> ACCOUNT <i class="fa fa-caret-down"></i></button>
-                <div class="w3-dropdown-content w3-card w3-bar-block">
+              <div className="w3-dropdown-hover w3-hide-small"style={{marginRight: '20px'}} >
+                <button className="w3-button" title="Notifications" ><i className="far fa-user-circle" /> ACCOUNT <i className="fa fa-caret-down"></i></button>
+                <div className="w3-dropdown-content w3-card w3-bar-block">
                 <a href="UserMenu" className="w3-bar-item w3-button mr-10" onClick={(e) => window.location.href='./UserMenu'}> Menu</a>
-                  <a href="/Settings" class="w3-bar-item w3-button">Settings</a>
-                  <a href="http://localhost:3000/" class="w3-bar-item w3-button">Log Out</a>
+                  <a href="/Settings" className="w3-bar-item w3-button">Settings</a>
+                  <a href="http://localhost:3000/" className="w3-bar-item w3-button">Log Out</a>
                 </div>
                 
               </div>

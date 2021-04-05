@@ -36,14 +36,13 @@ export default function LoadElements({detailsIncidents,setDetailsIncidents})  {
    
     const HandleSelectElement = async (value,element) => {
     
-        
-        /* localStorage.setItem("element",element.children); */
+    
         setDetailsIncidents({...detailsIncidents, element: element.children});
         
         filtrado = Object.values(typeIncidents).filter(element => element.element == value);
         setfilterTypes(filtrado);  
        
-        /* const localStorage_element= localStorage.getItem("element"); */
+
     
       };
 

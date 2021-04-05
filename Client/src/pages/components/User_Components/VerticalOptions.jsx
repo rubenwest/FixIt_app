@@ -4,22 +4,22 @@ const VerticalOptions = () => {
     return (
         <>    
 
-        <aside class="menu">
+        <aside className="menu">
 
-            <p class="menu-label">
+            <p className="menu-label">
                 Administracion
             </p>
-            <ul class="menu-list">
+            <ul className="menu-list">
                 <li>
-                <a class="is-active">Datos Usuario</a>
+                <a className="is-active">Datos Usuario</a>
 
                 </li>
             </ul>
-            <p class="menu-label">
+            <p className="menu-label">
                 Enlaces
             </p>
-            <ul class="menu-list">
-                <li><a>Compañia</a></li>
+            <ul className="menu-list">
+                <li><a href='HomePage'>Compañia</a></li>
                 <li><a>Ciudades</a></li>
                 <li><a>Otros</a></li>
             </ul>

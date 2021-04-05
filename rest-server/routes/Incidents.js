@@ -1,5 +1,5 @@
 const express = require("express");
-const {  addIncident, getIncidents, getAllIncidents} = require('../controllers/incidentController');
+const {  addIncident, getIncidents, getAllIncidents, finishedIncident} = require('../controllers/incidentController');
 const upload = require('../libs/storage');
 const router = express.Router();
 
@@ -8,6 +8,7 @@ const router = express.Router();
 
 router.post('/newIncident', upload.single('image'), addIncident);
 router.post('/loadIncidents', getIncidents);
+router.post('/finishedIncident', finishedIncident);
 router.get('/', getAllIncidents);
 
 

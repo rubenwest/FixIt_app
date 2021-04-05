@@ -9,6 +9,7 @@ import WorkSection from './components/HomePage_Components/WorkSection';
 import SkillsSection from './components/HomePage_Components/SkillsSection';
 import ContactSection from './components/HomePage_Components/ContactSection';
 import './css/homePage.css';
+import { Link } from 'react-scroll';
 
 const HomePage = () => {
     
@@ -32,7 +33,9 @@ const HomePage = () => {
           {/* Contact Section */}
           <ContactSection />
           {/* Footer */}
+          <Link smooth={true} duration={1000} to="home" className="w3-button w3-light-grey" ><i className="fa fa-arrow-up w3-margin-right" />To the top</Link>
           <Footer />
+
         </div>
     )
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import {saveIncident} from '../services/index'
 import FormIncident from '../components/User_Components/FormIncident';
 import SidebarUser from '../components/User_Components/SidebarUser';
-
+import Footer from '../components/Global_Components/Footer';
 function IncidentRegister() {
 
     const handleSubmit = async (detailsIncidents) => {
@@ -19,15 +19,19 @@ function IncidentRegister() {
     }
         
     return (
-
-            <div className="bg-gra-menu p-t-130 p-b-100 font-poppins">
+            <>
+            <div>
                     <SidebarUser />
-                    
-                    <div className="wrapper wrapper--w680"> 
+            </div>                    
+
+            <div className="bg-gra-menu vh-100 d-flex-normal">
+            
+                    <div className="wrapper-incidentRegister wrapper-padding-50"> 
                         <FormIncident handleSubmit= {handleSubmit}/>
                     </div>
-                </div>
-            
+            </div>
+            <Footer />
+            </>          
     )
 }
 

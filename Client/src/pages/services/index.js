@@ -1,13 +1,14 @@
 import axios from 'axios';
-
-const baseUrl = "http://localhost:8081";
+import Swal from 'sweetalert2';
+const baseUrl = 'http://localhost:8081';
 
 /*  LOGIN */
 /* ******* */
+
 export async function doLogin(details) {
 
-    console.log("Login"); 
-    console.log("details",details); 
+    console.log('Login'); 
+    console.log('details',details); 
     
     try {
 
@@ -18,19 +19,44 @@ export async function doLogin(details) {
             data: JSON.stringify(details)
         }) 
 
-        localStorage.setItem("token",response.data.token);
-        localStorage.setItem("password",details.password);
+        localStorage.setItem('token',response.data.token);
+        localStorage.setItem('password',details.password);
 
         console.log(response.data.user);
-        if (response.data.user.role === "USER") {
+        if (response.data.user.role === 'USER') {
+            sigNed();
             window.location.href='./UserMenu';
         }else{
+        
+            sigNed();
             window.location.href='./AdminMenu';
         }        
        
     } catch (error) {
-        console.log("Error: ",error);
+        console.log('Error: ',error);
     }
+
+async function sigNed() {
+
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer)
+              toast.addEventListener('mouseleave', Swal.resumeTimer)
+              
+            }
+          })
+          
+          Toast.fire({
+            icon: 'success',
+            title: 'Signed in successfully'
+          })
+    }
+
 
 }
 
@@ -51,14 +77,14 @@ export function searchUser(details) {
         return response
 
         }  catch (error) {
-            console.log("Error: ",error);
+            console.log('Error: ',error);
         }
 
 }
 
 export async function addUser(details) {
 
-    console.log("Esto le enviamos al registro: ",details);
+    console.log('Esto le enviamos al registro: ',details);
 
     try {
 
@@ -71,15 +97,15 @@ export async function addUser(details) {
          return response
        
     } catch (error) {
-        console.log("Error: ",error);
+        console.log('Error: ',error);
     }
 
 }
     
 export async function editUser(userData) {
 
-    console.log("editUser con ",userData);
-    console.log("editUser id ",userData._id);
+    console.log('editUser con ',userData);
+    console.log('editUser id ',userData._id);
 
     
     try {
@@ -98,7 +124,7 @@ export async function editUser(userData) {
          return response
        
     } catch (error) {
-        console.log("Error: ",error);
+        console.log('Error: ',error);
     }
 
 }
@@ -108,7 +134,7 @@ export async function loadUser(user) {
     const formData = new FormData();
 
     formData.append('user', user)
-    console.log("LLamada a loadUsers con",user); 
+    console.log('LLamada a loadUsers con',user); 
     try {
 
         const response = await axios({
@@ -116,14 +142,15 @@ export async function loadUser(user) {
             method: 'POST',
             data: {user: user}
         }) 
-        console.log("response: ",response);
+        console.log('response: ',response);
         return response
        
     } catch (error) {
-        console.log("Error: ",error);
+        console.log('Error: ',error);
     }
 
 }
+
 
 export async function getAllUsers() {
 
@@ -137,7 +164,7 @@ export async function getAllUsers() {
         return response
        
     } catch (error) {
-        console.log("Error: ",error);
+        console.log('Error: ',error);
     }
 
 }
@@ -147,13 +174,13 @@ export async function getAllUsers() {
 
 export async function saveIncident(incidentData) {
 
-    console.log("saveIncident "); 
+    console.log('saveIncident '); 
     
     try {
 
         const formData = new FormData();
 
-        formData.append('user', incidentData.email)
+        formData.append('email', incidentData.email)
         formData.append('element', incidentData.element)
         formData.append('incidentType', incidentData.incidentType)
         formData.append('address', incidentData.address)
@@ -169,29 +196,46 @@ export async function saveIncident(incidentData) {
          return response
        
     } catch (error) {
-        console.log("Error: ",error);
+        console.log('Error: ',error);
     }
 
 }
 
-export async function getIncidents(user) {
+export async function finishedIncident(id) {
+        
+    try {
+        const response = await axios({
+            url: `${baseUrl}/incident/finishedIncident`,
+            method: 'POST',
+            data: { id: id,
+                    state: 'Solucionada'
+                }
+        }) 
+         return response
+       
+    } catch (error) {
+        console.log('Error: ',error);
+    }
+}
 
-    const formData = new FormData();
-    formData.append('user', user)
-    console.log("LLamada a getIncidents con",user); 
+
+export async function getIncidents(email) {
+
+
+    console.log('LLamada a getIncidents con',email); 
     try {
 
         const response = await axios({
             url: `${baseUrl}/incident/loadIncidents`,
             method: 'POST',
-            data: {user: user}
+            data: {email: email}
         }) 
         console.log(response);
         
         return response
        
     } catch (error) {
-        console.log("Error: ",error);
+        console.log('Error: ',error);
     }
 
 }
@@ -209,7 +253,7 @@ export async function getAllIncidents() {
         return response
        
     } catch (error) {
-        console.log("Error: ",error);
+        console.log('Error: ',error);
     }
 
 }
@@ -217,7 +261,7 @@ export async function getAllIncidents() {
 
 export async function getElements() {
 
-    console.log("getElements"); 
+    console.log('getElements'); 
 
     try {
         const response = await axios({
@@ -228,14 +272,14 @@ export async function getElements() {
         return response
        
     } catch (error) {
-        console.log("Error: ",error);
+        console.log('Error: ',error);
     }
 
 }
 
 export async function getTypeIncidents() {
 
-    console.log("getTypeIncidents");
+    console.log('getTypeIncidents');
 
     try {
         const response = await axios({
@@ -246,7 +290,16 @@ export async function getTypeIncidents() {
         return response
        
     } catch (error) {
-        console.log("Error: ",error);
+        console.log('Error: ',error);
     }
     
+}
+
+
+export function format(date) {
+
+    let fecha = new Date(date);
+    console.log();
+    date = fecha.toLocaleDateString();
+    return date
 }

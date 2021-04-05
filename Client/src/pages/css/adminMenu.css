@@ -1,0 +1,53 @@
+.galleryAdmin {
+
+    margin-top: 100px;
+
+/*     margin-left: auto!important;
+    margin-right: auto!important; */
+      display: flex;
+      flex-direction: row;
+      
+  
+  }
+
+td{
+    vertical-align: middle !important;
+}
+
+  .center{
+      text-align: center;
+      /* background-color: lightcyan; */
+  }
+
+  .verticalSortAdmin{
+
+    margin: 20px !important;
+    
+
+      /* align-items: center; */
+      
+      /* min-height: 100vh */
+
+  }
+
+  .sideVerticalUser{
+    margin: 8.5rem 20px !important;
+  }
+
+  
+
+  .verticalSideAdmin{
+
+    margin: 50px 20px !important;
+    
+
+      /* align-items: center; */
+      
+      /* min-height: 100vh */
+
+  }
+
+  .menuAdmin{
+    margin-top: 50px;
+
+  }
