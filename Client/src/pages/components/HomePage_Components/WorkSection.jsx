@@ -12,11 +12,11 @@ import '../../css/homePage.css';
 const WorkSection = () => {
     return (
         <div className="w3-container" style={{padding: '128px 16px'}} id="work">
-          <h3 className="w3-center">Nuestro trabajo</h3>
+          <h3 className="w3-center">Casos de éxito</h3>
           <p className="w3-center w3-large">Lo que hemos hecho por la gente</p>
           <div className="w3-row-padding" style={{marginTop: '64px'}}>
             <div className="w3-col l3 m6">
-              <img src={tech_mic} style={{width: '100%'}} className="w3-hover-opacity" alt="A microphone" />
+              <a href="http://localhost:3000" target='_blank'><img src={tech_mic} style={{width: '100%'}} className="w3-hover-opacity" alt="A microphone"/></a>
             </div>
             <div className="w3-col l3 m6">
               <img src={tech_phone} style={{width: '100%'}} className="w3-hover-opacity" alt="A phone" />

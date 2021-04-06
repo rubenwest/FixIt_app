@@ -1,4 +1,5 @@
 import React from "react";
+import Sidebar from './components/HomePage_Components/Sidebar';
 import Footer from './components/Global_Components/Footer';
 import Header from './components/Global_Components/Header';
 import AboutSection from './components/HomePage_Components/AboutSection';
@@ -17,6 +18,7 @@ const HomePage = () => {
         <div id="myPage">
         
           {/* Header with full-height image */}
+          <Sidebar />
           <Header id="header"/>
           {/* About Section */}
           <AboutSection />
@@ -33,7 +35,6 @@ const HomePage = () => {
           {/* Contact Section */}
           <ContactSection />
           {/* Footer */}
-          <Link smooth={true} duration={1000} to="home" className="w3-button w3-light-grey" ><i className="fa fa-arrow-up w3-margin-right" />To the top</Link>
           <Footer />
 
         </div>

@@ -15,7 +15,7 @@ const Footer = () => {
             <i className='fa fa-twitter w3-hover-opacity mr-10' />
             <i className='fa fa-linkedin w3-hover-opacity mr-10' />
           </div>
-          <p>Powered by <a href='/HomePage' title='Neverland'  className='w3-hover-text-green'>NeverLand <img src='https://img.icons8.com/nolan/16/pirates-of-the-caribbean.png'/></a></p>
+          <p>Powered by <a href='HomePage' title='Neverland'  className='w3-hover-text-green'>NeverLand <img src='https://img.icons8.com/nolan/16/pirates-of-the-caribbean.png'/></a></p>
         </footer>
         </>
     )

@@ -15,10 +15,10 @@ const TeamSection = () => {
     return (
         <div className="w3-container" style={{padding: '128px 16px'}} id="team">
           <div style={{display: "flex", alignItems: 'center', flexDirection:"column"}}>
-              <h3 className="w3-center">THE PIRATE BAY</h3>
+              <h2 className="w3-center">THE PIRATE BAY</h2>
               <img src="https://img.icons8.com/nolan/128/pirates-of-the-caribbean.png"  />
               <span><p> </p></span>
-              <p className="w3-center w3-large">Los que dirigen esta empresa </p>
+              <p className="w3-center w3-large">Los que dirigen esta grupo </p>
           </div>
 
           <div className="w3-row-padding " style={{marginTop: '64px'}}>

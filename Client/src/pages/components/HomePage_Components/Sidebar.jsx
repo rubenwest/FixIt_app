@@ -25,7 +25,7 @@ const Sidebar = () => {
         <div className="w3-top" style={{position:'fixed'}}>
           <div className="w3-bar w3-white w3-card" id="myNavbar" >
           
-          <a href="#home" className="w3-bar-item w3-button w3-wide"><img src="https://img.icons8.com/nolan/32/pirates-of-the-caribbean.png"/> NEVERLAND</a>
+          <Link to="home" smooth={true} duration={1000} className="w3-bar-item w3-button w3-wide" ><img src="https://img.icons8.com/nolan/32/pirates-of-the-caribbean.png"/> NEVERLAND</Link>
   
             <div className="w3-right w3-hide-small">
               <Link to="about" smooth={true} duration={1000} className="w3-bar-item w3-button" >SERVICIOS</Link>

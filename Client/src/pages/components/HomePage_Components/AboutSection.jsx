@@ -4,7 +4,7 @@ const AboutSection = () => {
     return (
         
         <div className="w3-container html" style={{padding: '128px 16px'}} id="about">
-          <h3 className="w3-center">Sobre Nosotros</h3>
+          <h1 className="w3-center">Sobre Nosotros</h1>
           <p className="w3-center w3-large">Características de nuestra empresa</p>
           <div className="w3-row-padding w3-center" style={{marginTop: '64px'}}>
             <div className="w3-quarter">
@@ -20,7 +20,7 @@ const AboutSection = () => {
             <div className="w3-quarter">
               <i className="fa fa-diamond w3-margin-bottom w3-jumbo" />
               <p className="w3-large">Diseño</p>
-              <p>Solucionamos tus problemas de la formas mas artistica y creativa que puedas imaginar</p>
+              <p>Solucionamos tus problemas de la forma más artística y creativa que puedas imaginar</p>
             </div>
             <div className="w3-quarter">
               <i className="fa fa-cog w3-margin-bottom w3-jumbo" />

@@ -76,25 +76,29 @@ function ListIncidents({incidents, setIncidents,filters,countIncidents,setCountI
             <>
                     {
                         show_incidents.map(({_id, email, element, date, description, incidentType, state,imgUrl, address}) => {
-                            /* {state == 'Solucionada' ? 'darkRuben' : 'ruben'} */
+
                             return (
 
                                         <div className='cardIncident'>
                                             <div className='imgBx' style={{backgroundImage: `url(${imgUrl})`}}>
                                             </div>
-                                            <div className='contentIncident'>
+                                            <div style={{textAlign:'center'}}>
                                                 <h2>{element}</h2>
-                                                <h2>{incidentType}</h2>
+                                                <h3>{incidentType}</h3>
+                                                     
+                                            </div>
+                                            <div className='contentIncident'>
                                                 <p>{description}</p>
                                                 <p>{address}</p>
                                                 <p>{format(date)}</p>
                                                 {
-                                              state =='En proceso' ?  <div id='xMarc' onClick={() => {quitIncident(_id,email,address)}} >
-                                              <SvgXmarc />
-                                          </div> : <div className= 'darkRuben' >
-                                                <SvgCheck />
-                                            </div>
-                                            }
+                                                    state =='En proceso' ?  <div id='xMarc' onClick={() => {quitIncident(_id,email,address)}} >
+                                                    <SvgXmarc />
+                                                </div> : <div id='xMarc' >
+                                                        <SvgCheck />
+                                                    </div>
+                                                    } 
+
                                             </div>
 
                                         </div>
