@@ -8,6 +8,7 @@ import UserMenu from '../pages/_User_Pages/UserMenu.jsx';
 import IncidentRegister from '../pages/_User_Pages/IncidentRegister.jsx';
 import Settings from '../pages/_User_Pages/Settings';
 import AdminMenu from '../pages/_Admin_Pages/AdminMenu';
+import landingFixIt from '../pages/landingFixIt.jsx';
 
 function Routes() {
     return(
@@ -22,6 +23,8 @@ function Routes() {
                 <Route exact path='/HomePage' component={HomePage}/>
                 <Route exact path='/Settings' component={Settings}/>
                 <Route exact path='/AdminMenu' component={AdminMenu}/>
+                <Route exaxt path='/FixIt' component={landingFixIt} />
+            
             </Switch>
         </BrowserRouter>
     )

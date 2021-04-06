@@ -24,6 +24,8 @@ function active(e) {
             user.style.backgroundImage='linear-gradient(135deg, #FFF6B7 10%, #f5e9d0 100%)';
             inci.style.backgroundImage='none';
             setILoadingInc(false);
+            console.log('esto debe ponerse amarillo')
+            console.log(user.style.backgroundImage); 
             break;
 
         case 'En proceso':
@@ -46,49 +48,52 @@ function active(e) {
                 setFilters('');
                 break;       
         default:
+            user.style.backgroundImage='none';
+            inci.style.backgroundImage='linear-gradient(135deg, #FFF6B7 10%, #f5e9d0 100%)';
+            setFilters('');
+            setILoadingInc(true);
             break;
     }
-
-   
 }
     
     return (
-    <div className='verticalSideAdmin'>
-        <div className='ui orange vertical menu'>
-            <a className='teal orange item' style={{backgroundImage: 'linear-gradient(135deg, #FFF6B7 10%, #f5e9d0 100%)'}} onClick={active} id='inc'>
-                Incidencias
-                <div className='ui  left pointing label'>{countIncidents}</div>
-            </a>
-            <a className='item' name = 'user' onClick={active} id='users'>
-                Usuarios
-                <div className='ui label  left pointing'>{countUsers}</div>
-            </a>
-            <div className='item'>
-                <div className='ui transparent icon input'>
-                    <input type='text' placeholder='Search mail...'/>
-                    <i className='search icon'></i>
+
+            <div className='sideVerticalUser'>
+                <div className='ui orange vertical menu'>
+                    <a className='teal orange item' style={{backgroundImage:'linear-gradient(135deg, #FFF6B7 10%, #f5e9d0 100%)'}} onClick={active} id='inc'>
+                        Incidencias
+                        <div className='ui  left pointing label'>{countIncidents}</div>
+                    </a>
+                    <a className='item' name = 'user' onClick={active} id='users'>
+                        Usuarios
+                        <div className='ui label  left pointing'>{countUsers}</div>
+                    </a>
+                    <div className='item'>
+                        <div className='ui transparent icon input'>
+                            <input type='text' placeholder='Search mail...'/>
+                            <i className='search icon'></i>
+                        </div>
+                    </div>
+                {
+                    loadingInc && (  <div className='ui orange vertical verticalSortAdmin text menu'>
+                                        <div className='header item'>Filtrar por Estado:</div>
+                                        <a className='item' id='En proceso' onClick={active} >
+                                            En proceso
+                                        </a>
+                                        <a className='item' id='Solucionada' onClick={active} >
+                                            Solucionadas
+                                        </a>
+                                        <a className='item' id='Todas' style={{color:'orange'}} onClick={active} >
+                                            Todas
+                                        </a>
+                                </div>
+                                )
+                }
+
                 </div>
             </div>
-        {
-            loadingInc && (  <div className='ui orange vertical verticalSortAdmin text menu'>
-                                <div className='header item'>Filtrar por Estado:</div>
-                                <a className='item' id='En proceso' onClick={active} >
-                                    En proceso
-                                </a>
-                                <a className='item' id='Solucionada' onClick={active} >
-                                    Solucionadas
-                                </a>
-                                <a className='item' id='Todas' style={{color:'orange'}} onClick={active} >
-                                    Todas
-                                </a>
-                           </div>
-                        )
-        }
 
-        </div>
-    </div>
-        
-    )
+        )
 }
 
 export default SidebarVertical

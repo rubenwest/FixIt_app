@@ -72,32 +72,7 @@ function AdminMenu() {
             {
                 
                 loadingInc && (
-                    <div className='d-flex-normal-3'>
-                                                <SidebarVertical 
-                            loadingInc = {loadingInc} 
-                            setILoadingInc = {setILoadingInc}
-                            incidents = {incidents}
-                            users = {users}
-                            filters = {filters}
-                            setFilters = {setFilters}
-                            countIncidents = {countIncidents} 
-                            countUsers = {countUsers} 
-                            
-                        /> 
-                        <div className='galleryAdmin d-flex-normal-2'>
-                                                          
-                                <TableIncidents incidents={incidents} setIncidents={setIncidents} filters={filters} countIncidents={countIncidents} setCountIncidents = {setCountIncidents}/>
-                        </div>
-                    </div> 
-                )
-                
-            }
-            {
-                
-                !loadingInc && (
-                    <div className='menuAdmin d-flex-normal-2'>
-
-                        <div className='galleryAdmin d-flex-normal-2'> 
+                    <div className='d-flex-normal-2'>
                         <SidebarVertical 
                             loadingInc = {loadingInc} 
                             setILoadingInc = {setILoadingInc}
@@ -108,14 +83,36 @@ function AdminMenu() {
                             countIncidents = {countIncidents} 
                             countUsers = {countUsers} 
                             
-                        />                         
-                                <TableUsers users={users} setUsers={setUsers}/>
+                        /> 
+                        <div className='container'>
+                                <TableIncidents incidents={incidents} setIncidents={setIncidents} filters={filters} countIncidents={countIncidents} setCountIncidents = {setCountIncidents}/>
                         </div>
                     </div> 
                 )
                 
             }
-
+            {
+                
+                !loadingInc && (
+                    
+                    <div className='d-flex-normal-2'>
+                        <SidebarVertical 
+                            loadingInc = {loadingInc} 
+                            setILoadingInc = {setILoadingInc}
+                            incidents = {incidents}
+                            users = {users}
+                            filters = {filters}
+                            setFilters = {setFilters}
+                            countIncidents = {countIncidents} 
+                            countUsers = {countUsers} 
+                        /> 
+                        <div className='container'> 
+                            <TableUsers users={users} setUsers={setUsers}/>
+                        </div>
+                    </div> 
+                )
+                
+            }
             
         </div> 
         <Footer />   

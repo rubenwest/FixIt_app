@@ -95,6 +95,12 @@
 
 }
 
+div{
+  outline: none;
+}
+input{
+  outline: none;
+}
 .container .cardIncident:hover{
  
   height: 420px;

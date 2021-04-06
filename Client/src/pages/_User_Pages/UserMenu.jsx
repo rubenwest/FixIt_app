@@ -10,25 +10,15 @@ import SidebarUser from '../components/User_Components/SidebarUser';
 import SidebarVertical from '../components/User_Components/SidebarVertical';
 import Footer from '../components/Global_Components/Footer'
 
-/* import SidebarVertical from '../components/Admin_Components/SidebarVerticalAdmin'; */
-
-
 function UserMenu() {
     
-    console.log("UserMenu");
-
     const token = localStorage.getItem("token");
     const userLoged = jwt_decode(token); 
     const email = userLoged.user.email;
-    
-    console.log("Cargamos1 Incidencias de: ",email);
     const [incidents, setIncidents] = useState([]);
     const [filters, setFilters] = useState("");
     const [isLoading, setIsLoading] = useState(true);
     const [countIncidents, setCountIncidents] = useState(0);
-    
-    /* getAllIncidents(); */
-  /*   loadIncidents(email); */
     
     async function loadIncidents(email) {
 
@@ -36,8 +26,7 @@ function UserMenu() {
 
         if (resGetIncidents.status === 201) {
 
-            setIncidents(resGetIncidents.data.incidents) 
-            /* console.log(incidents); */ 
+            setIncidents(resGetIncidents.data.incidents)  
             let incidentsActives = resGetIncidents.data.incidents.filter( (incident) => incident.state == 'En proceso')
             setCountIncidents(incidentsActives.length);
             
@@ -52,21 +41,14 @@ function UserMenu() {
         return (
         <>
         <div className="bg-gra-menu">
-{/*             <Container>
-                <Navbar />
-            </Container> */}
             <header>
-            
-            <SidebarUser />
+                <SidebarUser />
             </header>
-
-
             {
                isLoading && <Loading />
             }
 
             {
-                /* !isLoading && incidents.length && <ListIncidents incidents={incidents}/> */
                 !isLoading && incidents.length && (
                     
                         <div className=" d-flex-normal-2">
@@ -81,9 +63,13 @@ function UserMenu() {
             {
                 !isLoading && !incidents.length && (
                     
-                        <div className=" d-flex-normal">
-                            <NewIncident />
-                        </div>
+                    <div className=" d-flex-normal-2">
+                    <SidebarVertical countIncidents={countIncidents} setCountIncidents= {setCountIncidents} filters={filters} setFilters= {setFilters}/>
+                    <div className='container'>
+                        <ListIncidents incidents={incidents} setIncidents={setIncidents} filters={filters} countIncidents={countIncidents} setCountIncidents = {setCountIncidents}/>
+                        <NewIncident />
+                    </div>
+                </div>
                 )
             }
         </div> 

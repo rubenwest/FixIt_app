@@ -23,7 +23,7 @@ const Sidebar = () => {
     <>
         {/* Navbar (sit on top) */}
         <div className="w3-top ">
-          <div className="w3-bar w3-white w3-card" id="myNavbar">
+          <div className="w3-bar w3-white w3-card" id="myNavbar" style={{position:'fixed'}}>
           
           <a href="#home" className="w3-bar-item w3-button w3-wide"><img src="https://img.icons8.com/nolan/32/pirates-of-the-caribbean.png"/> NEVERLAND</a>
             {/* Right-sided navbar links */}

@@ -1,21 +1,20 @@
 import React from 'react';
 import {TableRow} from './TableRow'
 import { Table } from 'semantic-ui-react';
-import SvgSort from './Svg/SvgSort';
 
-const TableIncidens = ({incidents, setIncidents,filters,countIncidents,setCountIncidents}) => (
+const TableIncidens = ({incidents, setIncidents,filters,countIncidents,setCountIncidents}) => {
 
-
-  <Table celled selectable >
+ return (
+  <Table sortable celled selectable >
       <Table.Header>
         <Table.Row className="center">
-          <Table.HeaderCell>Usuario <SvgSort /></Table.HeaderCell>
-          <Table.HeaderCell>Elemento <SvgSort /></Table.HeaderCell>
-          <Table.HeaderCell>Tipo <SvgSort /></Table.HeaderCell>
-          <Table.HeaderCell>Direccion <SvgSort /></Table.HeaderCell>
-          <Table.HeaderCell>Fecha <SvgSort /></Table.HeaderCell>
-          <Table.HeaderCell>Estado <SvgSort /></Table.HeaderCell>
-          <Table.HeaderCell>Accion <SvgSort /></Table.HeaderCell>
+          <Table.HeaderCell id='email'>Usuario</Table.HeaderCell>
+          <Table.HeaderCell id='element' >Elemento</Table.HeaderCell>
+          <Table.HeaderCell id='incidentType' >Tipo</Table.HeaderCell>
+          <Table.HeaderCell id='address' >Direccion</Table.HeaderCell>
+          <Table.HeaderCell id='date' >Fecha</Table.HeaderCell>
+          <Table.HeaderCell id='state' >Estado</Table.HeaderCell>
+          <Table.HeaderCell>Accion</Table.HeaderCell>
         </Table.Row>
       </Table.Header>
   
@@ -24,8 +23,8 @@ const TableIncidens = ({incidents, setIncidents,filters,countIncidents,setCountI
       </Table.Body>
     </Table>
 
-    
 )
+}
 
 export default TableIncidens
 

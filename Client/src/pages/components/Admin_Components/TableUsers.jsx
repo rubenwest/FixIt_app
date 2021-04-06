@@ -7,7 +7,7 @@ const TableUsers = ({users, setUsers}) => {
     return (
 
         <Table celled selectable >
-        <Table.Header>
+        <Table.Header className="center">
           <Table.Row>
             <Table.HeaderCell>Nombre <SvgSort /></Table.HeaderCell>
             <Table.HeaderCell>Apellidos <SvgSort /></Table.HeaderCell>

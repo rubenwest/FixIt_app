@@ -6,6 +6,9 @@ import './css/login.css';
 //Aqui importamos nuestra imagen
 import logo from './img/logo2.png';
 import poweredby3 from './img/poweredby3.png';
+import landingFixIt from './landingFixIt';
+
+
 
 
 function Login() {
@@ -19,9 +22,14 @@ function Login() {
 
 }
 
+function fixIt() {
+  window.location.href='./FixIt';
+}
+
     return (
 
           <div className='container-login'>
+            <button>Que es Fix It?</button>
             <div  className='login-wrapper'>
               <div className='text-center'>
                   <div className='mt-20'>
@@ -33,6 +41,7 @@ function Login() {
                       <input id='pass' className='form-control' name='password' type='password' placeholder='Contraseña' required onChange={e => setDetails({...details, password: e.target.value})} value={details.password}/>
                       <div className='text-center mt-20'>
                             <input type='submit' className='signup' value='Acceder'/>
+                            <input type='button' className='signup' value='Que es fix it?' onClick={fixIt}/>
                       </div> 
                     </form>
                   </div>
