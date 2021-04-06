@@ -6,7 +6,6 @@ import poster from '../pages/img/video.jpg';
 import video from '../pages/img/video.mp4';
 import Swal from 'sweetalert2';
 import Footer from './components/Global_Components/Footer';
-import unete from './img/Unete.png';
 
 function Register() {
 
@@ -17,13 +16,10 @@ function Register() {
 
         e.preventDefault();
 
-        console.log('Le enviamos a backend',details.email);
-
-
 //Primero nos aseguramos que ha rellenado bien los campos de ambas contraseñas
 
         if (details.password!==details.rPassword) {
-            /* swal('Las contraseñas deben coincidir', '', 'error'); */
+            
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
@@ -37,6 +33,7 @@ function Register() {
 
 }
 
+//Verificamos que el email no esté dado de alta en el sistema
 async function verifyEmail(details) {
 
     const responSearch = await searchUser(details);
@@ -47,11 +44,8 @@ async function verifyEmail(details) {
             title: 'Oops...',
             text: 'Email ya registrado!'
           })
-        console.log(responSearch);
     }else{
-
         registerUser(details);
-        
     }
     
 }
@@ -61,8 +55,7 @@ async function registerUser(details) {
     const responAddUser = await addUser(details);
 
     if (responAddUser.status===201) {
-        /* swal('Bienvenido al equipo', '', 'success'); */
-
+        
         Swal.fire({
             icon: 'success',
             title: '',
@@ -74,11 +67,10 @@ async function registerUser(details) {
           })
       
     }else{
-        console.log(responAddUser);
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
-            text: 'Something went wrong!'
+            text: 'Algo ha ido mal!'
           })
     }
 }
@@ -86,12 +78,9 @@ async function registerUser(details) {
     return (
         <>
 
-                            
- 
         <div className=' font-poppins vh-100 '>
             <video poster={poster} loop autoPlay muted className='vh-100'>
 				<source src={video} type='video/mp4' />
-            
 			</video>
             <h1 className='tittle3' style={{fontFamily: 'playlistcaps', fontStyle: 'italic'}}>UNETE</h1>
                 <div className='wrapper wrapper--w680 wrapper-padding-50'>
@@ -101,7 +90,6 @@ async function registerUser(details) {
                                 <div className='row row-space'>
                                     <div className='col-2'>
                                         <div className='input-group'>
-                                        
                                             <label className='label'>Nombre</label>
                                             <input className='input--style-4' type='text' name='name' onChange={e => setDetails({...details, name: e.target.value})} value={details.name}/>
                                         </div>
@@ -172,13 +160,8 @@ async function registerUser(details) {
                 
             </div>
             <Footer />
-
       </>
     );
-
-
 }
-
-
 
 export default Register;

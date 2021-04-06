@@ -17,7 +17,6 @@ const SidebarVertical = ({countIncidents, setCountIncidents, filters, setFilters
         iProgress.style.color = 'orange';
         iDone.style.color = 'rgba(0,0,0,.5)';
         setFilters('En proceso');
-        console.log('Filtro: ',filters);
 
         break;
 
@@ -26,7 +25,6 @@ const SidebarVertical = ({countIncidents, setCountIncidents, filters, setFilters
         iProgress.style.color = 'rgba(0,0,0,.5)';
         iDone.style.color = 'orange';
         setFilters('');
-        console.log('Filtro: ',filters);
 
         break;
       case 'contact':
@@ -38,38 +36,20 @@ const SidebarVertical = ({countIncidents, setCountIncidents, filters, setFilters
 
   function contact() {
 
-    Swal.fire({
-        title: 'Submit your Github username',
-        input: 'text',
-        inputAttributes: {
-          autocapitalize: 'off'
-        },
-        showCancelButton: true,
-        confirmButtonText: 'Look up',
-        showLoaderOnConfirm: true,
-        preConfirm: (login) => {
-          return fetch(`//api.github.com/users/${login}`)
-            .then(response => {
-              if (!response.ok) {
-                throw new Error(response.statusText)
-              }
-              return response.json()
-            })
-            .catch(error => {
-              Swal.showValidationMessage(
-                `Request failed: ${error}`
-              )
-            })
-        },
-        allowOutsideClick: () => !Swal.isLoading()
-      }).then((result) => {
-        if (result.isConfirmed) {
-          Swal.fire({
-            title: `${result.value.login}'s avatar`,
-            imageUrl: result.value.avatar_url
-          })
-        }
-      })
+    const { value: text } =  Swal.fire({
+      input: 'textarea',
+      inputLabel: 'Message',
+      inputPlaceholder: 'Type your message here...',
+      inputAttributes: {
+        'aria-label': 'Type your message here'
+      },
+      showCancelButton: true
+    })
+    
+    if (text) {
+      Swal.fire(text)
+    }
+
   }
 
   return (

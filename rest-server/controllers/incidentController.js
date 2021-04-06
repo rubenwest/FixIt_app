@@ -9,8 +9,6 @@ async function getAllIncidents(req,res) {
 async function addIncident(req,res) {
 
     try {
-        console.log('incident:',req.body);
-        
 
         const {
             email,
@@ -28,16 +26,12 @@ async function addIncident(req,res) {
             address
         })
 
-        console.log('incident:',incident);
-
         if (req.file) {
             const { filename } = req.file
             incident.setImgUrl(filename)
         }
 
-
         const incidentStored = await incident.save();
-
         res.status(201).send({incidentStored})
 
     } catch (error) {
@@ -49,17 +43,10 @@ async function finishedIncident(req,res) {
 
     try {
 
-        console.log("finishedIncident");
-
         const body = req.body;
         const id = body.id;
-        console.log("id:",id);
-        console.log("body:",body);
         const incidentStored = await Incident.findByIdAndUpdate(id, body, {useFindAndModify: false})
-
         res.status(201).send({incidentStored});
-
-        console.log("incidentStored:",incidentStored);
 
     } catch (error) {
         res.status(500).send({message: error.message})

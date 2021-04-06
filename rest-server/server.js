@@ -20,11 +20,6 @@ app.use('/public', express.static(`${__dirname}/storage/imgs`))
 // parse application/json
 app.use(bodyParser.json());
 
-// request handlers
-/* app.get('/', (req, res) => {
-    res.status(200).json({ message: 'Enable CORS in Node.js' });
-  }); */
-
 //Global routes
 app.use(require("./routes/Index"));
 

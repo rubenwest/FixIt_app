@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import '../../css/userMenu.css';
 import {searchUser, format } from '../../services/index';
-
 import Swal from 'sweetalert2';
 import working from '../../img/working.jpg';
 import SvgXmarc from './SvgXmarc';
 import SvgCheck from './SvgCheck';
-
-
 
 function ListIncidents({incidents, setIncidents,filters,countIncidents,setCountIncidents}) {
     
@@ -18,7 +15,6 @@ function ListIncidents({incidents, setIncidents,filters,countIncidents,setCountI
  
         var show_incidents = incidents.filter( (incident) => incident.state == filters );
 
-        console.log(show_incidents); 
     }else{
         var show_incidents = incidents;
     }
@@ -29,7 +25,6 @@ function ListIncidents({incidents, setIncidents,filters,countIncidents,setCountI
         const responSearch = await searchUser(details);
     
         if (!responSearch.data.ok) {
-            console.log('ladata:',responSearch.data);
             setName(`${responSearch.data.userDB.name} ${responSearch.data.userDB.surname}`);
         }else{
     
@@ -72,7 +67,6 @@ function ListIncidents({incidents, setIncidents,filters,countIncidents,setCountI
 
             console.log('vamos a guardar: ',id,email,address);
              
-
           }
     }
  

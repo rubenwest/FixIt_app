@@ -7,9 +7,6 @@ const baseUrl = 'http://localhost:8081';
 
 export async function doLogin(details) {
 
-    console.log('Login'); 
-    console.log('details',details); 
-    
     try {
 
         const response = await axios({
@@ -18,26 +15,30 @@ export async function doLogin(details) {
             headers: { 'Content-Type': 'application/json' },
             data: JSON.stringify(details)
         }) 
-
+        
         localStorage.setItem('token',response.data.token);
         localStorage.setItem('password',details.password);
 
-        console.log(response.data.user);
         if (response.data.user.role === 'USER') {
             sigNed();
-            window.location.href='./UserMenu';
+            setTimeout(function(){ window.location.href='./UserMenu' }, 3000);
         }else{
         
             sigNed();
-            window.location.href='./AdminMenu';
+            setTimeout(function(){ window.location.href='./AdminMenu' }, 3000);
+            
         }        
        
     } catch (error) {
-        console.log('Error: ',error);
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Usuario o contraseña incorrectos!'
+          })
     }
 
 async function sigNed() {
-
+   
         const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',
@@ -84,8 +85,6 @@ export function searchUser(details) {
 
 export async function addUser(details) {
 
-    console.log('Esto le enviamos al registro: ',details);
-
     try {
 
         const response = await axios({
@@ -104,10 +103,6 @@ export async function addUser(details) {
     
 export async function editUser(userData) {
 
-    console.log('editUser con ',userData);
-    console.log('editUser id ',userData._id);
-
-    
     try {
 
 
@@ -134,7 +129,6 @@ export async function loadUser(user) {
     const formData = new FormData();
 
     formData.append('user', user)
-    console.log('LLamada a loadUsers con',user); 
     try {
 
         const response = await axios({
@@ -142,7 +136,6 @@ export async function loadUser(user) {
             method: 'POST',
             data: {user: user}
         }) 
-        console.log('response: ',response);
         return response
        
     } catch (error) {
@@ -174,8 +167,6 @@ export async function getAllUsers() {
 
 export async function saveIncident(incidentData) {
 
-    console.log('saveIncident '); 
-    
     try {
 
         const formData = new FormData();
@@ -221,8 +212,6 @@ export async function finishedIncident(id) {
 
 export async function getIncidents(email) {
 
-
-    console.log('LLamada a getIncidents con',email); 
     try {
 
         const response = await axios({
@@ -279,8 +268,6 @@ export async function getElements() {
 
 export async function getTypeIncidents() {
 
-    console.log('getTypeIncidents');
-
     try {
         const response = await axios({
             url: `${baseUrl}/LoadIncidentsTypes`,
@@ -299,7 +286,6 @@ export async function getTypeIncidents() {
 export function format(date) {
 
     let fecha = new Date(date);
-    console.log();
     date = fecha.toLocaleDateString();
     return date
 }

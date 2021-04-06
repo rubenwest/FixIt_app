@@ -7,15 +7,11 @@ import Swal from 'sweetalert2';
 
 export const TableRow = ({incidents, setIncidents, filters,countIncidents,setCountIncidents}) => {
 
-    
-    console.log('filtro: ',filters);
     let back = 'lightcoral';
     let show = '';
     
     if (filters!='') {
-        console.log(incidents); 
         var show_incidents = incidents.filter( (incidednt) => incidednt.state == filters );
-        console.log(show_incidents); 
     }else{
         var show_incidents = incidents;
     }
@@ -24,8 +20,6 @@ export const TableRow = ({incidents, setIncidents, filters,countIncidents,setCou
 
 async function finishIncident(e) {
 
-    console.log('Finalizamos la incidencia: ',e.target.value);
-    
     const resFinishIncident = await finishedIncident(e.target.value)
 
     if (resFinishIncident.status===201) {

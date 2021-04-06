@@ -15,6 +15,7 @@ function UserMenu() {
     const token = localStorage.getItem("token");
     const userLoged = jwt_decode(token); 
     const email = userLoged.user.email;
+    console.log('Soy ',email);
     const [incidents, setIncidents] = useState([]);
     const [filters, setFilters] = useState("");
     const [isLoading, setIsLoading] = useState(true);
@@ -65,7 +66,7 @@ function UserMenu() {
                     
                     <div className=" d-flex-normal-2">
                     <SidebarVertical countIncidents={countIncidents} setCountIncidents= {setCountIncidents} filters={filters} setFilters= {setFilters}/>
-                    <div className='container'>
+                    <div className='container-2'>
                         <ListIncidents incidents={incidents} setIncidents={setIncidents} filters={filters} countIncidents={countIncidents} setCountIncidents = {setCountIncidents}/>
                         <NewIncident />
                     </div>

@@ -7,14 +7,6 @@ import TableUsers from '../components/Admin_Components/TableUsers';
 import '../css/adminMenu.css'
 import Footer from '../components/Global_Components/Footer';
 function AdminMenu() {
-    
-    console.log('AdminMenu');
-
-/*     const token = localStorage.getItem('token');
-    const userLoged = jwt_decode(token); 
-    const user = userLoged.user.email; */
-    
-    console.log('Cargamos todas las Incidencias');
 
     const [incidents, setIncidents] = useState([]);
     const [countIncidents, setCountIncidents] = useState(0);
@@ -38,7 +30,6 @@ function AdminMenu() {
         LoadUsers();
     },[])
 
-    
     async function LoadIncidents() {
 
         const resGetIncidents =  await getAllIncidents();
@@ -68,7 +59,6 @@ function AdminMenu() {
                 <SidebarTop />
             </header>
         
-
             {
                 
                 loadingInc && (
@@ -111,7 +101,6 @@ function AdminMenu() {
                         </div>
                     </div> 
                 )
-                
             }
             
         </div> 

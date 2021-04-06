@@ -50,7 +50,6 @@ async function searchUser(req,res){
 async function getUsers(req,res) {
 
     try {
-        console.log("getUsers");
         const {user} = req.body
 
         const users = await User.find({ email: user }).lean().exec()
@@ -98,21 +97,22 @@ async function addUser(req,res) {
 }
 
 async function sendEmail(req,res) {
-    
-    const sgMail = require('@sendgrid/mail')
-sgMail.setApiKey('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')
-const msg = {
-  to: 'rubensg90@gmail.com', // Change to your recipient
-  from: 'rubensg90@gmail.com', // Change to your verified sender
-  subject: 'Sending with SendGrid is Fun',
-  text: 'and easy to do anywhere, even with Node.js',
-  html: '<strong>and easy to do anywhere, even with Node.js</strong>',
-}
 
+    const sgMail = require('@sendgrid/mail')
+    sgMail.setApiKey(process.env.DB_USER);
+    const msg = {
+    to: 'rubensg90@gmail.com', // Change to your recipient
+    from: 'rubensg90@gmail.com', // Change to your verified sender
+    subject: 'Sending with SendGrid is Fun',
+    text: 'and easy to do anywhere, even with Node.js',
+    html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+    }
+
+    console.log(msg);
 sgMail
   .send(msg)
   .then(() => {
-    console.log('Email sent')
+    res.status(201).send("enviado")
   })
   .catch((error) => {
     console.error(error)

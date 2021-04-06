@@ -11,8 +11,6 @@ function active(e) {
     var iDone = document.getElementById('Solucionada');
     var all = document.getElementById('Todas');
 
-    console.log('activamor!', e.target.id);
-
     switch (e.target.id) {
         case 'inc':
             user.style.backgroundImage='none';
@@ -24,8 +22,6 @@ function active(e) {
             user.style.backgroundImage='linear-gradient(135deg, #FFF6B7 10%, #f5e9d0 100%)';
             inci.style.backgroundImage='none';
             setILoadingInc(false);
-            console.log('esto debe ponerse amarillo')
-            console.log(user.style.backgroundImage); 
             break;
 
         case 'En proceso':

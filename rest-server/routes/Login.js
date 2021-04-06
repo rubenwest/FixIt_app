@@ -8,15 +8,15 @@ const R = require("ramda");
 //creamos el metodo post
 
 router.get("/", (req,res) => {    
-    res.json("PUT USER");}
+    res.json("Get USER");}
     );
 
 router.post("/", (req, res) => {
 
     try {
-        console.log("req.body,",req.body);
+
         const body = req.body;
-        
+        console.log('Soy ',body.email);
         User.findOne({ email: body.email }, (error, userDB) => {
 
             if (error !== null) {
@@ -57,15 +57,11 @@ router.post("/", (req, res) => {
                 ok: true,
                 user: userDB,
                 token,
-            });
-
-            console.log(token);
-            
+            });   
 
         })
 
     } catch(error) {
-        console.log(error)
         res.status(500).json({
             message: "Internal error login"
         })

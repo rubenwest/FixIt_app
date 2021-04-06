@@ -23,13 +23,11 @@ router.post("/", (req, res) => {
   
     incidentType.save((err, incidentTypeDB) => { 
       if (err) {
-        console.log("Error al insertar categoria: ",err);
         res.status(400).json({
           ok: false,
           err,
         });
       } else {
-        console.log("insertada la categoria: ",incidentTypeDB);
         res.json({
           ok: true,
           incidentType: incidentTypeDB,

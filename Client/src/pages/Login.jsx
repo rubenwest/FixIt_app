@@ -2,13 +2,10 @@ import React, {useState} from 'react';
 import {doLogin} from './services/index';
 import {Link} from 'react-router-dom';
 import './css/login.css';
-
+import Swal from 'sweetalert2';
 //Aqui importamos nuestra imagen
 import logo from './img/logo2.png';
 import poweredby3 from './img/poweredby3.png';
-import landingFixIt from './landingFixIt';
-
-
 
 
 function Login() {
@@ -22,14 +19,49 @@ function Login() {
 
 }
 
-function fixIt() {
-  window.location.href='./FixIt';
+const ForgotPassword = e => {
+
+  Swal.fire({
+    title: 'Introduce tu email',
+    input: 'text',
+    inputAttributes: {
+      autocapitalize: 'off'
+    },
+    showCancelButton: true,
+    confirmButtonText: 'Enviar',
+    showLoaderOnConfirm: true,
+    preConfirm: (login) => {
+
+      return fetch(`http://localhost:8081/user/sendEmail`)
+
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(response.statusText)
+          }
+          
+        })
+        .catch(error => {
+          Swal.showValidationMessage(
+            `Request failed: ${error}`
+          )
+        })
+
+    },
+    allowOutsideClick: () => !Swal.isLoading()
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire({
+        title: `Constreña enviada! No olvides revisar spam!`,
+        imageUrl: result.value.avatar_url
+      })
+    }
+  })
+
 }
 
     return (
 
           <div className='container-login'>
-            <button>Que es Fix It?</button>
             <div  className='login-wrapper'>
               <div className='text-center'>
                   <div className='mt-20'>
@@ -41,7 +73,6 @@ function fixIt() {
                       <input id='pass' className='form-control' name='password' type='password' placeholder='Contraseña' required onChange={e => setDetails({...details, password: e.target.value})} value={details.password}/>
                       <div className='text-center mt-20'>
                             <input type='submit' className='signup' value='Acceder'/>
-                            <input type='button' className='signup' value='Que es fix it?' onClick={fixIt}/>
                       </div> 
                     </form>
                   </div>
@@ -49,7 +80,7 @@ function fixIt() {
                     <Link to='./Register' className='torange'>¿Todavía no tienes cuenta? Creala!</Link>
                   </div>
                   <div className='mt-20 pt-10'>
-                    <Link to='./ForgotPassword' className='torange'>¿Olvidaste tu contraseña?</Link>
+                    <a onClick={ForgotPassword} className='torange'>¿Olvidaste tu contraseña?</a>
                   </div>
                   <div className='powered'>
                     <img src='https://img.icons8.com/nolan/64/pirates-of-the-caribbean.png'/>

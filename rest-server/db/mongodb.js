@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 //Conexion con atlas
 
-mongoose.connect("mongodb+srv://rubenwest:Zangetsu2.@cluster0.nvm1m.mongodb.net/FixIt_app?retryWrites=true&w=majority", {
+mongoose.connect(process.env.DB_HOST, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,

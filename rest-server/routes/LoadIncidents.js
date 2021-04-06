@@ -13,7 +13,7 @@ app.use(cors(corsOptions));
 
 //Creamos el metodo get
 router.get("/", (req, res) => {
-    res.send("holaa este es el get")
+    res.send("Este es el get")
 });
 
 
@@ -24,9 +24,7 @@ router.post("/", (req, res) => {
     // expected output: "Hello World"
 
     let body = req.body;
-    console.log("lo que llega a loadIncidents: ",body.user);
     Incient.find({ email: body.email }, (err, incidents) => {
-        console.log("Encontramos: ", incidents);
         res.status(200).send(incidents);
     })
   });

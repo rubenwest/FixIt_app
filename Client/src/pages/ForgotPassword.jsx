@@ -1,6 +1,5 @@
 import './css/userMenu.css';
 
-
 function ForgotPassword() {
     
         return (
@@ -13,6 +12,5 @@ function ForgotPassword() {
     
         )
 };
-    
 
 export default ForgotPassword;

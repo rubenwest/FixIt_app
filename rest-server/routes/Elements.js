@@ -26,13 +26,11 @@ router.post("/", (req, res) => {
   
     element.save((err, elementDB) => { 
       if (err) {
-        console.log("Error al insertar calle: ",err);
         res.status(400).json({
           ok: false,
           err,
         });
       } else {
-        console.log("insertada la calle: ",elementDB);
         res.json({
           ok: true,
           element: elementDB,

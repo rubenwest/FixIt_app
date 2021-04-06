@@ -35,25 +35,16 @@ export default function LoadElements({detailsIncidents,setDetailsIncidents})  {
 
    
     const HandleSelectElement = async (value,element) => {
-    
-    
+
         setDetailsIncidents({...detailsIncidents, element: element.children});
-        
         filtrado = Object.values(typeIncidents).filter(element => element.element == value);
         setfilterTypes(filtrado);  
        
-
-    
       };
 
     const handleSelectTypes = (incidentType,value) => {
       
-
-      /* localStorage.setItem("typeElement",value.children); */
-      const localStorage_typeElement= localStorage.getItem("typeElement");
-      /* console.log("localStorage_typeElement: ",localStorage_typeElement); */
       setDetailsIncidents({...detailsIncidents, incidentType: value.children});
-      /* console.log("incidentType : ",detailsIncidents); */
     };
     
 

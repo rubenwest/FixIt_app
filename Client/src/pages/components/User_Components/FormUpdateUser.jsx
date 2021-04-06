@@ -22,9 +22,6 @@ async function loadDataUser(user) {
 
     if (resLoadUser.status === 201) {
         setdetailsUsers(resLoadUser.data.users[0]);
-
-    }else{
-        console.log(resLoadUser.status);
     }
 
 }
@@ -46,14 +43,7 @@ const _handleSubmit = (e) => {
 
     e.preventDefault();
 
-    /* handleSubmit({...detailsIncide11nts, image: inputFileRef.current.files[0]}); */
-
-    console.log("detailsUsers: ", detailsUsers)
     const realPass = localStorage.getItem("password");
-
-    console.log("password: ",    detailsUsers.password);
-    console.log("rpassword: ",detailsUsers.rpassword);
-    console.log("realPass: ",realPass);
 
     if ( detailsUsers.password === detailsUsers.rpassword && detailsUsers.password === realPass) {
 
@@ -61,9 +51,6 @@ const _handleSubmit = (e) => {
 
         if (resEditUser.status === 201) {
             setdetailsUsers(resEditUser.data.users);     
-        }else{
-            console.log(resEditUser.status);
-            
         }
     
         window.location.href='./Settings';
