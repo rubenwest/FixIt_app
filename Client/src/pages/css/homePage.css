@@ -8,7 +8,18 @@
     background-image: linear-gradient(359deg, #FFCC70 44%, #dc90d8 62%, #6fb8bb 77%, #929296 90%);
 
 }
-
+.w3-dropdown-click, .w3-dropdown-hover {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+.w3-bar .w3-dropdown-hover, .w3-bar .w3-dropdown-click {
+    position: static;
+    float: left;
+}
+div {
+    outline: none;
+}
 @import url("https://fonts.googleapis.com/css?family=Raleway");
 
 html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}
@@ -291,3 +302,7 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 .h-mt-64{
     margin-top:64px
 }
+
+
+/* LA DOOOSO */
+

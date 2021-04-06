@@ -9,11 +9,11 @@ const StatisticsSection = () => {
           </div>
           <div className="w3-quarter">
             <span className="w3-xxlarge">55+</span>
-            <br />Projects Done
+            <br />Projectos hechos
           </div>
           <div className="w3-quarter">
             <span className="w3-xxlarge">89+</span>
-            <br />Happy Clients
+            <br />Clientes Felices
           </div>
           <div className="w3-quarter">
             <span className="w3-xxlarge">150+</span>

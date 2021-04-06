@@ -18,7 +18,7 @@ const TeamSection = () => {
               <h3 className="w3-center">THE PIRATE BAY</h3>
               <img src="https://img.icons8.com/nolan/128/pirates-of-the-caribbean.png"  />
               <span><p> </p></span>
-              <p className="w3-center w3-large">The ones who runs this company</p>
+              <p className="w3-center w3-large">Los que dirigen esta empresa </p>
           </div>
 
           <div className="w3-row-padding " style={{marginTop: '64px'}}>
@@ -28,7 +28,7 @@ const TeamSection = () => {
                 <div className="w3-container">
                   <h3>Ruben Sanchez</h3>
                   <p className="w3-opacity">CEO &amp; Founder</p>
-                  <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+                  <p>Peter Pan de la vida, entusiasta e incansable. Adicto a la tecnolgía, conseguirá todo lo que se proponga.</p>
                   <p><button className="w3-button w3-block"><i className="fa fa-envelope" /> Contact</button></p>
                 </div>
               </div>

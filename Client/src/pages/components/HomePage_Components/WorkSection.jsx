@@ -12,8 +12,8 @@ import '../../css/homePage.css';
 const WorkSection = () => {
     return (
         <div className="w3-container" style={{padding: '128px 16px'}} id="work">
-          <h3 className="w3-center">OUR WORK</h3>
-          <p className="w3-center w3-large">What we've done for people</p>
+          <h3 className="w3-center">Nuestro trabajo</h3>
+          <p className="w3-center w3-large">Lo que hemos hecho por la gente</p>
           <div className="w3-row-padding" style={{marginTop: '64px'}}>
             <div className="w3-col l3 m6">
               <img src={tech_mic} style={{width: '100%'}} className="w3-hover-opacity" alt="A microphone" />

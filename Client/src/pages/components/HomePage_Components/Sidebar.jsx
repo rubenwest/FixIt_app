@@ -21,31 +21,28 @@ const Sidebar = () => {
 
     return (
     <>
-        {/* Navbar (sit on top) */}
-        <div className="w3-top ">
-          <div className="w3-bar w3-white w3-card" id="myNavbar" style={{position:'fixed'}}>
+
+        <div className="w3-top" style={{position:'fixed'}}>
+          <div className="w3-bar w3-white w3-card" id="myNavbar" >
           
           <a href="#home" className="w3-bar-item w3-button w3-wide"><img src="https://img.icons8.com/nolan/32/pirates-of-the-caribbean.png"/> NEVERLAND</a>
-            {/* Right-sided navbar links */}
+  
             <div className="w3-right w3-hide-small">
-              <Link to="about" smooth={true} duration={1000} className="w3-bar-item w3-button" >ABOUT</Link>
+              <Link to="about" smooth={true} duration={1000} className="w3-bar-item w3-button" >SERVICIOS</Link>
               
-              <Link to="team" smooth={true} duration={1000} className="w3-bar-item w3-button" ><i className="fa fa-user" /> TEAM</Link>
+              <Link to="team" smooth={true} duration={1000} className="w3-bar-item w3-button" ><i className="fa fa-user" /> EQUIPO</Link>
               
-              <Link to="work" smooth={true} duration={1000} className="w3-bar-item w3-button" ><i className="fa fa-th" /> WORK</Link>
-              <Link to="contact" smooth={true} duration={1000} className="w3-bar-item w3-button" ><i className="fa fa-envelope" /> CONTACT</Link>
+              <Link to="work" smooth={true} duration={1000} className="w3-bar-item w3-button" ><i className="fa fa-th" /> ÉXITOS</Link>
+              <Link to="contact" smooth={true} duration={1000} className="w3-bar-item w3-button" ><i className="fa fa-envelope" /> CONTACTO</Link>
               <div className="w3-dropdown-hover w3-hide-small"style={{marginRight: '20px'}} >
-                <button className="w3-button" title="Notifications" ><i className="far fa-user-circle" /> ACCOUNT <i className="fa fa-caret-down"></i></button>
-                <div className="w3-dropdown-content w3-card w3-bar-block">
-                <a href="UserMenu" className="w3-bar-item w3-button mr-10" onClick={(e) => window.location.href='./UserMenu'}> Menu</a>
-                  <a href="/Settings" className="w3-bar-item w3-button">Settings</a>
-                  <a href="http://localhost:3000/" className="w3-bar-item w3-button">Log Out</a>
-                </div>
-                
+                <button className="w3-button" title="Notifications" ><i className="far fa-user-circle" /> CUENTA <i className="fa fa-caret-down"></i></button>
+                  <div className="w3-dropdown-content w3-card w3-bar-block">
+                    <a href="UserMenu" className="w3-bar-item w3-button mr-10" onClick={(e) => window.location.href='./UserMenu'}> Menu</a>
+                    <a href="/Settings" className="w3-bar-item w3-button">Settings</a>
+                    <a href="http://localhost:3000/" className="w3-bar-item w3-button">Salir</a>
+                  </div>
               </div>
-              
             </div>
-            {/* Hide right-floated links on small screens and replace them with a menu icon */}
             <a href="javascript:void(0)" className="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onClick={(e) => {w3_open()}}>
               <i className="fa fa-bars" />
             </a>

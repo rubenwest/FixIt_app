@@ -30,11 +30,12 @@ const ForgotPassword = e => {
     showCancelButton: true,
     confirmButtonText: 'Enviar',
     showLoaderOnConfirm: true,
-    preConfirm: (login) => {
+    preConfirm: () => {
 
       return fetch(`http://localhost:8081/user/sendEmail`)
 
         .then(response => {
+
           if (!response.ok) {
             throw new Error(response.statusText)
           }
