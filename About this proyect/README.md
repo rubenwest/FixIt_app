@@ -26,6 +26,12 @@ cd Client
 
 npm start
 
+--Abrimos otra terminal para levantar el servidor
+
+cd rest-server
+
+npm start
+
 Voila!
 
 Ya puedes hacer uso de la aplicación!
