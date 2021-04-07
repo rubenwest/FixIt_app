@@ -20,7 +20,6 @@ const TeamSection = () => {
               <span><p> </p></span>
               <p className="w3-center w3-large">Los que dirigen este grupo </p>
           </div>
-
           <div className="w3-row-padding " style={{marginTop: '64px'}}>
             <div className="w3-col l3 m6 w3-margin-bottom">
               <div className="w3-card">
@@ -35,11 +34,11 @@ const TeamSection = () => {
             </div>
             <div className="w3-col l3 m6 w3-margin-bottom">
               <div className="w3-card">
-                <img src={teampaloma} alt="Dan" style={{width: '100%' }} />
+                <img src={teammanu} alt="Dan" style={{width: '100%'}} />
                 <div className="w3-container">
-                  <h3>Borja Tortosa</h3>
-                  <p className="w3-opacity">CEO &amp; Founder</p>
-                  <p>Aventurero y trotamundos, sabe como sacar partido a cada situación y persona del equipo</p>
+                  <h3>Pedro Bretones</h3>
+                  <p className="w3-opacity">Designer</p>
+                  <p>Soñador y seguro, Cordobés de nacimiento y puro arte para diseñar tanto proyectos como equipos.</p>
                   <p><button className="w3-button w3-light-grey w3-block"><i className="fa fa-envelope" /> Contact</button></p>
                 </div>
               </div>
@@ -68,17 +67,6 @@ const TeamSection = () => {
             </div>
             <div className="w3-col l3 m6 w3-margin-bottom">
               <div className="w3-card">
-                <img src={teamanabel} alt="Jane" style={{width: '100%'}} />
-                <div className="w3-container">
-                  <h3>Jose calvo</h3>
-                  <p className="w3-opacity">Art Director</p>
-                  <p>Amable y directo, sabe como llevar al equipo a su máximo rendimiento.</p>
-                  <p><button className="w3-button w3-light-grey w3-block"><i className="fa fa-envelope" /> Contact</button></p>
-                </div>
-              </div>
-            </div>
-            <div className="w3-col l3 m6 w3-margin-bottom">
-              <div className="w3-card">
                 <img src={teamjuanjo} alt="Jane" style={{width: '100%'}} />
                 <div className="w3-container">
                   <h3>Irina Lebedeva</h3>
@@ -90,23 +78,33 @@ const TeamSection = () => {
             </div>
             <div className="w3-col l3 m6 w3-margin-bottom">
               <div className="w3-card">
+                <img src={teampaloma} alt="Dan" style={{width: '100%' }} />
+                <div className="w3-container">
+                  <h3>Borja Tortosa</h3>
+                  <p className="w3-opacity">CEO &amp; Founder</p>
+                  <p>Aventurero y trotamundos, sabe como sacar partido a cada situación y persona del equipo</p>
+                  <p><button className="w3-button w3-light-grey w3-block"><i className="fa fa-envelope" /> Contact</button></p>
+                </div>
+              </div>
+            </div>
+            <div className="w3-col l3 m6 w3-margin-bottom">
+              <div className="w3-card">
+                <img src={teamanabel} alt="Jane" style={{width: '100%'}} />
+                <div className="w3-container">
+                  <h3>Jose calvo</h3>
+                  <p className="w3-opacity">Art Director</p>
+                  <p>Amable y directo, sabe como llevar al equipo a su máximo rendimiento.</p>
+                  <p><button className="w3-button w3-light-grey w3-block"><i className="fa fa-envelope" /> Contact</button></p>
+                </div>
+              </div>
+            </div>
+            <div className="w3-col l3 m6 w3-margin-bottom">
+              <div className="w3-card">
                 <img src={teamangeles} alt="Mike" style={{width: '100%'}} />
                 <div className="w3-container">
                   <h3>Jesus Heras</h3>
                   <p className="w3-opacity">Web Designer</p>
                   <p>Bromista al mas puro estilo Angel Martin, derrocha energia para sacar a adelante cualquier cosa.</p>
-                  <p><button className="w3-button w3-light-grey w3-block"><i className="fa fa-envelope" /> Contact</button></p>
-                </div>
-              </div>
-            </div>
-
-            <div className="w3-col l3 m6 w3-margin-bottom">
-              <div className="w3-card">
-                <img src={teammanu} alt="Dan" style={{width: '100%'}} />
-                <div className="w3-container">
-                  <h3>Pedro Bretones</h3>
-                  <p className="w3-opacity">Designer</p>
-                  <p>Soñador y seguro, Cordobés de nacimiento y puro arte para diseñar tanto proyectos como equipos.</p>
                   <p><button className="w3-button w3-light-grey w3-block"><i className="fa fa-envelope" /> Contact</button></p>
                 </div>
               </div>
