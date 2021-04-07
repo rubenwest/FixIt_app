@@ -10,7 +10,7 @@ import WorkSection from './components/HomePage_Components/WorkSection';
 import SkillsSection from './components/HomePage_Components/SkillsSection';
 import ContactSection from './components/HomePage_Components/ContactSection';
 import './css/homePage.css';
-import { Link } from 'react-scroll';
+
 
 const HomePage = () => {
     

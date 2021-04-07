@@ -12,7 +12,7 @@ import '../../css/homePage.css';
 const WorkSection = () => {
     return (
         <div className="w3-container" style={{padding: '128px 16px'}} id="work">
-          <h3 className="w3-center">Casos de éxito</h3>
+          <h1 className="w3-center">Casos de éxito</h1>
           <p className="w3-center w3-large">Lo que hemos hecho por la gente</p>
           <div className="w3-row-padding" style={{marginTop: '64px'}}>
             <div className="w3-col l3 m6">

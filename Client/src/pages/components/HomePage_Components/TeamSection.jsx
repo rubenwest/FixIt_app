@@ -18,7 +18,7 @@ const TeamSection = () => {
               <h2 className="w3-center">THE PIRATE BAY</h2>
               <img src="https://img.icons8.com/nolan/128/pirates-of-the-caribbean.png"  />
               <span><p> </p></span>
-              <p className="w3-center w3-large">Los que dirigen esta grupo </p>
+              <p className="w3-center w3-large">Los que dirigen este grupo </p>
           </div>
 
           <div className="w3-row-padding " style={{marginTop: '64px'}}>
@@ -37,9 +37,9 @@ const TeamSection = () => {
               <div className="w3-card">
                 <img src={teampaloma} alt="Dan" style={{width: '100%' }} />
                 <div className="w3-container">
-                  <h3>Paloma Ramirez</h3>
+                  <h3>Borja Tortosa</h3>
                   <p className="w3-opacity">CEO &amp; Founder</p>
-                  <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+                  <p>Aventurero y trotamundos, sabe como sacar partido a cada situación y persona del equipo</p>
                   <p><button className="w3-button w3-light-grey w3-block"><i className="fa fa-envelope" /> Contact</button></p>
                 </div>
               </div>
@@ -48,9 +48,9 @@ const TeamSection = () => {
               <div className="w3-card">
                 <img src={teamjorge} alt="John" style={{width: '100%'}} />
                 <div className="w3-container">
-                  <h3>Jorge Villaverde</h3>
+                  <h3>Angela Candela</h3>
                   <p className="w3-opacity">CEO &amp; Founder</p>
-                  <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+                  <p>Paciente y sensible, pura personalidad italiana llena de energia que ama todo lo que hace.</p>
                   <p><button className="w3-button w3-light-grey w3-block"><i className="fa fa-envelope" /> Contact</button></p>
                 </div>
               </div>
@@ -59,9 +59,9 @@ const TeamSection = () => {
               <div className="w3-card">
                 <img src={teamcarmen} alt="John" style={{width: '100%'}} />
                 <div className="w3-container">
-                  <h3>Carmen Tapia</h3>
+                  <h3>Pablo L. Leth</h3>
                   <p className="w3-opacity">Recruiter</p>
-                  <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+                  <p>Mirada sencilla y sonrisa tranquila, maneja las situaciones complejas con profesionalidad y templanza.</p>
                   <p><button className="w3-button w3-light-grey w3-block"><i className="fa fa-envelope" /> Contact</button></p>
                 </div>
               </div>
@@ -70,9 +70,9 @@ const TeamSection = () => {
               <div className="w3-card">
                 <img src={teamanabel} alt="Jane" style={{width: '100%'}} />
                 <div className="w3-container">
-                  <h3>Anabel Alcazar</h3>
+                  <h3>Jose calvo</h3>
                   <p className="w3-opacity">Art Director</p>
-                  <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+                  <p>Amable y directo, sabe como llevar al equipo a su máximo rendimiento.</p>
                   <p><button className="w3-button w3-light-grey w3-block"><i className="fa fa-envelope" /> Contact</button></p>
                 </div>
               </div>
@@ -81,9 +81,9 @@ const TeamSection = () => {
               <div className="w3-card">
                 <img src={teamjuanjo} alt="Jane" style={{width: '100%'}} />
                 <div className="w3-container">
-                  <h3>Juanjo Lopez</h3>
+                  <h3>Irina Lebedeva</h3>
                   <p className="w3-opacity">Art Director</p>
-                  <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+                  <p>Intrépida y siempre sonriente tiene una mente privilegiada para todo lo que hace.</p>
                   <p><button className="w3-button w3-light-grey w3-block"><i className="fa fa-envelope" /> Contact</button></p>
                 </div>
               </div>
@@ -92,9 +92,9 @@ const TeamSection = () => {
               <div className="w3-card">
                 <img src={teamangeles} alt="Mike" style={{width: '100%'}} />
                 <div className="w3-container">
-                  <h3>Angeles Ramos</h3>
+                  <h3>Jesus Heras</h3>
                   <p className="w3-opacity">Web Designer</p>
-                  <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+                  <p>Bromista al mas puro estilo Angel Martin, derrocha energia para sacar a adelante cualquier cosa.</p>
                   <p><button className="w3-button w3-light-grey w3-block"><i className="fa fa-envelope" /> Contact</button></p>
                 </div>
               </div>
@@ -104,9 +104,9 @@ const TeamSection = () => {
               <div className="w3-card">
                 <img src={teammanu} alt="Dan" style={{width: '100%'}} />
                 <div className="w3-container">
-                  <h3>Manuel Soriano</h3>
+                  <h3>Pedro Bretones</h3>
                   <p className="w3-opacity">Designer</p>
-                  <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+                  <p>Soñador y seguro, Cordobés de nacimiento y puro arte para diseñar tanto proyectos como equipos.</p>
                   <p><button className="w3-button w3-light-grey w3-block"><i className="fa fa-envelope" /> Contact</button></p>
                 </div>
               </div>

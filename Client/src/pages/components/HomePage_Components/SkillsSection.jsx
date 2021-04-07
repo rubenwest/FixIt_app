@@ -7,7 +7,7 @@ const SkillsSection = () => {
           
 
           <div style={{display: "flex", alignItems: 'center', flexDirection:"column"}}>
-              <h3 className="w3-center">Habilidades</h3>
+              <h1 className="w3-center">Habilidades</h1>
               <SvgHabi />
               <div className="w3-col m6" style={{marginTop:'50px'}}>
               <p className="w3-wide"><i className="fa fa-camera w3-margin-right" />Photography</p>

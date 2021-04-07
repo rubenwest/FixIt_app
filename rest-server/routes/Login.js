@@ -16,7 +16,6 @@ router.post("/", (req, res) => {
     try {
 
         const body = req.body;
-        console.log('Soy ',body.email);
         User.findOne({ email: body.email }, (error, userDB) => {
 
             if (error !== null) {
