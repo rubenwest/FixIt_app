@@ -1,39 +1,31 @@
 # Fix-It app
-Proyecto final Bootcamp Full Stack Web - El objetivo principal de la aplicación reside en gestionar las denuncias municipales. Estas incidencias son emitidas por ciudadanos de una misma ciudad y son gestionadas por el ayuntamiento. De esta forma se podría paliar los efectos negativos de la inseguridad ciudadana mejorando la satisfacción y el rendimiento general de los ciudadanos.
 
-Install
--------
+The main objective of the application is to manage municipal complaints. These incidents are issued by citizens of the same city and are managed by the city council. In this way, the negative effects of citizen insecurity could be alleviated by improving citizen satisfaction and overall performance
 
-cd Directorio donde queremos instalar nuestra aplicacion
+In this repository you will find the server for the project Fix-It. It contain the entities for the dummy database you can find in the [FixIt_app repository](https://github.com/rubenwest/FixIt_app.git).
 
-git clone https://github.com/rubenwest/FixIt_app.git
+# Getting started
 
-cd FixIt_app/client
+To get started you should clone this respository on your local directory
+* `$git clone https://github.com/rubenwest/FixIt_app.git`
 
-npm install
+Then in your project directory get to client route and get npm install (remember using sudo if you are a linux user)
+* `cd /client`
+* `$ npm install`
 
-cd..
+Next get to install and wakeup the Node server and MongoDB:
 
-cd rest-server
+* `cd /rest-server`
+* `$ npm install`
+* `$ npm start`
 
-npm install
+And the finally you get wake up the client:
 
-npm start
-
-cd..
-
-cd Client
-
-npm start
-
---Abrimos otra terminal para levantar el servidor
-
-cd rest-server
-
-npm start
+* `cd /client`
+* `$ npm start`
 
 Voila!
 
-Ya puedes hacer uso de la aplicación!
+You can now use the application!
 
-Registrate y reporta tus incidencias para mejorar tu ciudad!
+Register and report your incidents to improve your city!
